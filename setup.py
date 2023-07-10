@@ -38,9 +38,9 @@ def _run_cmake(build_dir):
     ]
     if "CONDA_PREFIX" in os.environ:
         args.append("-DUSE_CONDA_PATH=on")
-    if shutil.which('nvc'):
-        args.append(f'-DCMAKE_C_COMPILER={shutil.which("nvc")}')
-    elif "CC" in os.environ:
+    # if shutil.which('nvc'):
+    #     args.append(f'-DCMAKE_C_COMPILER={shutil.which("nvc")}')
+    if "CC" in os.environ:
         args.append(f'-DCMAKE_C_COMPILER={os.environ["CC"]}')
     
 
