@@ -18,7 +18,7 @@ if(WITH_TESTS)
 endif()
 
 set(CMAKE_MACOSX_RPATH 1)
-set(CMAKE_C_FLAGS_RELEASE "-Wall -O2")
+set(CMAKE_C_FLAGS_RELEASE "-Wall -O2 -fPIC -I/opt/nvidia/hpc_sdk/Linux_x86_64/22.7/compilers/include/lp64/")
 set(CMAKE_C_FLAGS_DEBUG "-g -DLAGWARNING -DTHMWARNING")
 
 if(NOT CMAKE_BUILD_TYPE)

@@ -36,10 +36,14 @@ def _run_cmake(build_dir):
         "-DPHONO3PY=on",
         "-DCMAKE_INSTALL_PREFIX=.",
     ]
-    # if "CONDA_PREFIX" in os.environ:
-    #     args.append("-DUSE_CONDA_PATH=on")
-    # if "CC" in os.environ:
-    #     args.append(f'-DCMAKE_C_COMPILER={os.environ["CC"]}')
+    if "CONDA_PREFIX" in os.environ:
+        args.append("-DUSE_CONDA_PATH=on")
+    if shutil.which('nvc'):
+        args.append(f'-DCMAKE_C_COMPILER={shutil.which("nvc")}')
+    elif "CC" in os.environ:
+        args.append(f'-DCMAKE_C_COMPILER={os.environ["CC"]}')
+    
+
 
     cmake_output = subprocess.check_output(args)
     print(cmake_output.decode("utf-8"))
