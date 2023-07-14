@@ -2136,7 +2136,6 @@ class Phono3py:
             log_level=self._log_level,
         )
 
-    @nvtx.annotate(color="red")
     def run_thermal_conductivity(
         self,
         is_LBTE=False,

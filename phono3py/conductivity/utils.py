@@ -944,6 +944,7 @@ class ShowCalcProgress:
             print("")
 
 
+@nvtx.annotate(color='green')
 def write_pp(
     conductivity: "ConductivityBase",
     pp: Interaction,
@@ -977,6 +978,7 @@ def write_pp(
         compression=compression,
     )
 
+@nvtx.annotate(color='green')
 def set_collision_from_file(
     lbte: "ConductivityLBTEBase",
     indices="all",
@@ -1015,7 +1017,7 @@ def set_collision_from_file(
         sys.stdout.flush()
 
     arrays_allocated = False
-    with nvtx.annotate('collision: outside loop', color='red'):
+    with nvtx.annotate('collision: outside loop', color='green'):
         for i_sigma, sigma in enumerate(sigmas):
             collisions = read_collision_from_hdf5(
                 mesh,
