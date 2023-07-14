@@ -88,3 +88,9 @@ A lattice thermal conductivity calculation is performed by, e.g.,
 % phono3py-load phono3py_disp_dimfc2.yaml --mesh 11 11 11 --br --ts 300
 ```
 The result is 108.0 W/m-K, and with the 19x19x19 mesh, 125.4 W/m-K.
+
+Use `nvtx` to profile the code
+
+```
+nsys profile -t nvtx,osrt --force-overwrite=true --stats=true --output=quickstart python Si.py
+```

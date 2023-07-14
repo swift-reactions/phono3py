@@ -44,3 +44,7 @@ _build
 
 # ctest
 Testing
+
+# nsight profiling
+*.nsys-rep
+*.sqlite

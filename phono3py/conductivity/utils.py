@@ -74,6 +74,8 @@ if TYPE_CHECKING:
 
 from phono3py.phonon3.interaction import Interaction
 
+import nvtx
+
 
 class ConductivityRTAWriter:
     """Collection of result writers."""
@@ -671,13 +673,13 @@ class ConductivityLBTEWriter:
                                 verbose=log_level,
                             )
 
-
 def select_colmat_solver(pinv_solver):
     """Return collision matrix solver id."""
     try:
-        import phono3py._phono3py as phono3c
+        with nvtx.annotate('phono3c.default_colmat_solver', color='blue'):
+            import phono3py._phono3py as phono3c
 
-        default_solver = phono3c.default_colmat_solver()
+            default_solver = phono3c.default_colmat_solver()
     except ImportError:
         print("Phono3py C-routine is not compiled correctly.")
         default_solver = 4
@@ -975,7 +977,6 @@ def write_pp(
         compression=compression,
     )
 
-
 def set_collision_from_file(
     lbte: "ConductivityLBTEBase",
     indices="all",
@@ -1014,44 +1015,31 @@ def set_collision_from_file(
         sys.stdout.flush()
 
     arrays_allocated = False
-    for i_sigma, sigma in enumerate(sigmas):
-        collisions = read_collision_from_hdf5(
-            mesh,
-            indices=indices,
-            sigma=sigma,
-            sigma_cutoff=sigma_cutoff,
-            filename=filename,
-            verbose=(log_level > 0),
-        )
-        if log_level:
-            sys.stdout.flush()
-
-        if collisions:
-            (colmat_at_sigma, gamma_at_sigma, temperatures) = collisions
-            if not arrays_allocated:
-                arrays_allocated = True
-                # The following invokes self._allocate_values()
-                lbte.temperatures = temperatures
-            lbte.collision_matrix[i_sigma] = colmat_at_sigma[0]
-            lbte.gamma[i_sigma] = gamma_at_sigma[0]
-            read_from = "full_matrix"
-        else:
-            vals = _allocate_collision(
-                True,
+    with nvtx.annotate('collision: outside loop', color='red'):
+        for i_sigma, sigma in enumerate(sigmas):
+            collisions = read_collision_from_hdf5(
                 mesh,
-                sigma,
-                sigma_cutoff,
-                grid_points,
-                indices,
-                filename,
+                indices=indices,
+                sigma=sigma,
+                sigma_cutoff=sigma_cutoff,
+                filename=filename,
+                verbose=(log_level > 0),
             )
-            if vals:
-                colmat_at_sigma, gamma_at_sigma, temperatures = vals
+            if log_level:
+                sys.stdout.flush()
+
+            if collisions:
+                (colmat_at_sigma, gamma_at_sigma, temperatures) = collisions
+                if not arrays_allocated:
+                    arrays_allocated = True
+                    # The following invokes self._allocate_values()
+                    lbte.temperatures = temperatures
+                lbte.collision_matrix[i_sigma] = colmat_at_sigma[0]
+                lbte.gamma[i_sigma] = gamma_at_sigma[0]
+                read_from = "full_matrix"
             else:
-                if log_level:
-                    print("Collision at grid point %d doesn't exist." % grid_points[0])
                 vals = _allocate_collision(
-                    False,
+                    True,
                     mesh,
                     sigma,
                     sigma_cutoff,
@@ -1063,56 +1051,69 @@ def set_collision_from_file(
                     colmat_at_sigma, gamma_at_sigma, temperatures = vals
                 else:
                     if log_level:
-                        print(
-                            "Collision at (grid point %d, band index %d) "
-                            "doesn't exist." % (grid_points[0], 1)
-                        )
-                    return False
+                        print("Collision at grid point %d doesn't exist." % grid_points[0])
+                    vals = _allocate_collision(
+                        False,
+                        mesh,
+                        sigma,
+                        sigma_cutoff,
+                        grid_points,
+                        indices,
+                        filename,
+                    )
+                    if vals:
+                        colmat_at_sigma, gamma_at_sigma, temperatures = vals
+                    else:
+                        if log_level:
+                            print(
+                                "Collision at (grid point %d, band index %d) "
+                                "doesn't exist." % (grid_points[0], 1)
+                            )
+                        return False
 
-            if not arrays_allocated:
-                arrays_allocated = True
-                # The following invokes self._allocate_values()
-                lbte.temperatures = temperatures
+                if not arrays_allocated:
+                    arrays_allocated = True
+                    # The following invokes self._allocate_values()
+                    lbte.temperatures = temperatures
 
-            for i, gp in enumerate(grid_points):
-                if not _collect_collision_gp(
-                    lbte.collision_matrix[i_sigma],
-                    lbte.gamma[i_sigma],
-                    temperatures,
-                    mesh,
-                    sigma,
-                    sigma_cutoff,
-                    i,
-                    gp,
-                    bz_grid.bzg2grg,
-                    indices,
-                    is_reducible_collision_matrix,
-                    filename,
-                    log_level,
-                ):
-                    num_band = lbte.collision_matrix.shape[3]
-                    for i_band in range(num_band):
-                        if not _collect_collision_band(
-                            lbte.collision_matrix[i_sigma],
-                            lbte.gamma[i_sigma],
-                            temperatures,
-                            mesh,
-                            sigma,
-                            sigma_cutoff,
-                            i,
-                            gp,
-                            bz_grid.bzg2grg,
-                            i_band,
-                            indices,
-                            is_reducible_collision_matrix,
-                            filename,
-                            log_level,
-                        ):
-                            return False
-            read_from = "grid_points"
+                for i, gp in enumerate(grid_points):
+                    if not _collect_collision_gp(
+                        lbte.collision_matrix[i_sigma],
+                        lbte.gamma[i_sigma],
+                        temperatures,
+                        mesh,
+                        sigma,
+                        sigma_cutoff,
+                        i,
+                        gp,
+                        bz_grid.bzg2grg,
+                        indices,
+                        is_reducible_collision_matrix,
+                        filename,
+                        log_level,
+                    ):
+                        num_band = lbte.collision_matrix.shape[3]
+                        for i_band in range(num_band):
+                            if not _collect_collision_band(
+                                lbte.collision_matrix[i_sigma],
+                                lbte.gamma[i_sigma],
+                                temperatures,
+                                mesh,
+                                sigma,
+                                sigma_cutoff,
+                                i,
+                                gp,
+                                bz_grid.bzg2grg,
+                                i_band,
+                                indices,
+                                is_reducible_collision_matrix,
+                                filename,
+                                log_level,
+                            ):
+                                return False
+                read_from = "grid_points"
 
     return read_from
-
 
 def _allocate_collision(
     for_gps,
@@ -1151,7 +1152,6 @@ def _allocate_collision(
 
     temperatures = collision[2]
     return None, None, temperatures
-
 
 def _collect_collision_gp(
     colmat_at_sigma,

@@ -46,6 +46,8 @@ from phonopy.file_IO import check_force_constants_indices, get_cell_from_disp_ya
 
 from phono3py.version import __version__
 
+import nvtx
+
 
 def write_cell_yaml(w, supercell):
     """Write cell info.
@@ -1128,7 +1130,6 @@ def read_gamma_from_hdf5(
 
     return read_data, full_filename
 
-
 def read_collision_from_hdf5(
     mesh,
     indices=None,
@@ -1717,7 +1718,7 @@ def get_length_of_first_line(f):
 
     raise RuntimeError("File doesn't contain relevant infomration.")
 
-
+@nvtx.annotate(color='red')
 def _get_filename_suffix(
     mesh,
     grid_point=None,

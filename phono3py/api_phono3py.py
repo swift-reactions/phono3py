@@ -93,6 +93,8 @@ from phono3py.phonon3.spectral_function import run_spectral_function
 from phono3py.phonon.grid import BZGrid
 from phono3py.version import __version__
 
+import nvtx
+
 
 class Phono3py:
     """Phono3py main class.
@@ -2134,6 +2136,7 @@ class Phono3py:
             log_level=self._log_level,
         )
 
+    @nvtx.annotate(color="red")
     def run_thermal_conductivity(
         self,
         is_LBTE=False,

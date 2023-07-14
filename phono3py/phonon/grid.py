@@ -49,6 +49,7 @@ from phonopy.structure.cells import (
 from phonopy.structure.grid_points import extract_ir_grid_points, length2mesh
 from phonopy.utils import similarity_transformation
 
+import nvtx
 
 class BZGrid:
     """Data structure of BZ grid of primitive cell.
@@ -917,7 +918,6 @@ def get_ir_grid_points(bz_grid: BZGrid):
 
     return ir_grid_points, ir_grid_weights, ir_grid_map
 
-
 def get_grid_points_by_rotations(
     bz_gp, bz_grid: BZGrid, reciprocal_rotations=None, with_surface=False
 ):
@@ -973,21 +973,23 @@ def _get_grid_points_by_bz_rotations(bz_gp, bz_grid: BZGrid, rotations, lang="C"
     else:
         return _get_grid_points_by_bz_rotations_py(bz_gp, bz_grid, rotations)
 
-
+# @nvtx.annotate(color='red')
 def _get_grid_points_by_bz_rotations_c(bz_gp, bz_grid: BZGrid, rotations):
     import phono3py._phono3py as phono3c
 
     bzgps = np.zeros(len(rotations), dtype="int_")
+    # with nvtx.annotate('rotations', color='red'):
     for i, r in enumerate(rotations):
-        bzgps[i] = phono3c.rotate_bz_grid_index(
-            bz_gp,
-            r,
-            bz_grid.addresses,
-            bz_grid.gp_map,
-            bz_grid.D_diag,
-            bz_grid.PS,
-            bz_grid.store_dense_gp_map * 1 + 1,
-        )
+        with nvtx.annotate('phono3c.rotate_bz_grid_index', color='blue'):
+            bzgps[i] = phono3c.rotate_bz_grid_index(
+                bz_gp,
+                r,
+                bz_grid.addresses,
+                bz_grid.gp_map,
+                bz_grid.D_diag,
+                bz_grid.PS,
+                bz_grid.store_dense_gp_map * 1 + 1,
+            )
     return bzgps
 
 

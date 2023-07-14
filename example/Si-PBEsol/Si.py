@@ -11,7 +11,7 @@ def run_thermal_conductivity():
     ph3 = phono3py.load("phono3py_disp.yaml", log_level=2)
     ph3.mesh_numbers = [11, 11, 11]
     ph3.init_phph_interaction()
-    ph3.run_thermal_conductivity(temperatures=range(0, 1001, 10), write_kappa=True)
+    ph3.run_thermal_conductivity(temperatures=range(0, 1001, 10), write_kappa=True, is_LBTE=True)
     # Conductivity_RTA object
     print(ph3.thermal_conductivity.kappa)
 

@@ -49,6 +49,8 @@ from phono3py.phonon3.imag_self_energy import ImagSelfEnergy
 from phono3py.phonon3.interaction import Interaction
 from phono3py.phonon.grid import get_grid_points_by_rotations, get_ir_grid_points
 
+import nvtx
+
 unit_to_WmK = (
     (THz * Angstrom) ** 2 / (Angstrom**3) * EV / THz / (2 * np.pi)
 )  # 2pi comes from definition of lifetime.
@@ -864,7 +866,7 @@ class ConductivityBase(ABC):
         if self._boundary_mfp is not None:
             main_diagonal += self._get_boundary_scattering(i)
         return main_diagonal
-
+    
     def _get_boundary_scattering(self, i_gp):
         num_band = len(self._pp.primitive) * 3
         g_boundary = np.zeros(num_band, dtype="double")

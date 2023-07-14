@@ -59,6 +59,7 @@ from phono3py.phonon3.collision_matrix import CollisionMatrix
 from phono3py.phonon3.interaction import Interaction, all_bands_exist
 from phono3py.phonon.grid import get_grid_points_by_rotations
 
+import nvtx
 
 class ConductivityLBTEBase(ConductivityBase):
     """Base class of ConductivityLBTE*.
@@ -204,6 +205,7 @@ class ConductivityLBTEBase(ConductivityBase):
         self._collision.delete_integration_weights()
         self._pp.delete_interaction_strength()
 
+    @nvtx.annotate(color="red")
     def set_kappa_at_sigmas(self):
         """Calculate lattice thermal conductivity from collision matrix.
 
@@ -257,6 +259,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
         kappa[i_sigma, i_temp] = mode_kappa[i_sigma, i_temp].sum(axis=0).sum(axis=0) / N
 
+    @nvtx.annotate(color='red')
     def _set_kappa_reducible_colmat(self, kappa, mode_kappa, i_sigma, i_temp, weights):
         """Calculate direct solution thermal conductivity of full colmat.
 
@@ -523,6 +526,7 @@ class ConductivityLBTEBase(ConductivityBase):
                     j, k, i_data
                 ] = self._collision.get_collision_matrix()
 
+    @nvtx.annotate(color="red")
     def _prepare_collision_matrix(self):
         """Collect pieces and construct collision matrix."""
         if self._is_reducible_collision_matrix:
@@ -554,6 +558,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
         return weights
 
+    @nvtx.annotate(color="red")
     def _multiply_weights_to_collisions(self):
         weights = self._get_weights()
         for i, w_i in enumerate(weights):
@@ -561,6 +566,7 @@ class ConductivityLBTEBase(ConductivityBase):
                 self._collision_matrix[:, :, i, :, :, j, :, :] *= w_i * w_j
         return weights
 
+    @nvtx.annotate(color="red")
     def _combine_collisions(self):
         """Include diagonal elements into collision matrix."""
         num_band = len(self._pp.primitive) * 3
@@ -576,12 +582,15 @@ class ConductivityLBTEBase(ConductivityBase):
                             main_diagonal[ll] * r
                         )
 
+    @nvtx.annotate(color='red')
     def _combine_reducible_collisions(self):
         """Include diagonal elements into collision matrix."""
         num_band = len(self._pp.primitive) * 3
         num_mesh_points = np.prod(self._pp.mesh_numbers)
 
+        # with nvtx.annotate('temperature, sigma: outside loop', color='red'):
         for j, k in np.ndindex((len(self._sigmas), len(self._temperatures))):
+            # with nvtx.annotate('num_mesh_points: outside loop', color='red'):
             for i in range(num_mesh_points):
                 main_diagonal = self._get_main_diagonal(i, j, k)
                 for ll in range(num_band):
@@ -595,50 +604,58 @@ class ConductivityLBTEBase(ConductivityBase):
             sys.stdout.flush()
 
         if self._lang == "C":
-            import phono3py._phono3py as phono3c
+            with nvtx.annotate('phono3c', color='blue'):  
+                import phono3py._phono3py as phono3c
 
-            phono3c.expand_collision_matrix(
-                self._collision_matrix, ir_gr_grid_points, rot_grid_points
-            )
+                phono3c.expand_collision_matrix(
+                    self._collision_matrix, ir_gr_grid_points, rot_grid_points
+                )
         else:
             num_mesh_points = np.prod(self._pp.mesh_numbers)
             colmat = self._collision_matrix
-            for ir_gp in ir_gr_grid_points:
-                multi = (rot_grid_points[:, ir_gp] == ir_gp).sum()
-                colmat_irgp = colmat[:, :, ir_gp, :, :, :].copy()
-                colmat_irgp /= multi
-                colmat[:, :, ir_gp, :, :, :] = 0
-                for j, _ in enumerate(self._rotations_cartesian):
-                    gp_r = rot_grid_points[j, ir_gp]
-                    for k in range(num_mesh_points):
-                        gp_c = rot_grid_points[j, k]
-                        colmat[:, :, gp_r, :, gp_c, :] += colmat_irgp[:, :, :, k, :]
+            with nvtx.annotate('ir_gr_grid_points: outside loop', color='blue'):
+                for ir_gp in ir_gr_grid_points:
+                    multi = (rot_grid_points[:, ir_gp] == ir_gp).sum()
+                    colmat_irgp = colmat[:, :, ir_gp, :, :, :].copy()
+                    colmat_irgp /= multi
+                    colmat[:, :, ir_gp, :, :, :] = 0
+                    with nvtx.annotate('_rotations_cartesian: outside loop', color='blue'):
+                        for j, _ in enumerate(self._rotations_cartesian):
+                            gp_r = rot_grid_points[j, ir_gp]
+                            with nvtx.annotate('num_mesh_points: outside loop', color='blue'):
+                                for k in range(num_mesh_points):
+                                    gp_c = rot_grid_points[j, k]
+                                    colmat[:, :, gp_r, :, gp_c, :] += colmat_irgp[:, :, :, k, :]
 
         if self._log_level:
             print("[%.3fs]" % (time.time() - start))
             sys.stdout.flush()
 
+    
     def _expand_local_values(self, ir_gr_grid_points, rot_grid_points):
         """Fill elements of local properties at grid points."""
-        for ir_gp in ir_gr_grid_points:
-            cv_irgp = self._cv[:, ir_gp, :].copy()
-            self._cv[:, ir_gp, :] = 0
-            gv_irgp = self._gv[ir_gp].copy()
-            self._gv[ir_gp] = 0
-            gamma_irgp = self._gamma[:, :, ir_gp, :].copy()
-            self._gamma[:, :, ir_gp, :] = 0
-            multi = (rot_grid_points[:, ir_gp] == ir_gp).sum()
-            if self._is_isotope:
-                gamma_iso_irgp = self._gamma_iso[:, ir_gp, :].copy()
-                self._gamma_iso[:, ir_gp, :] = 0
-            for j, r in enumerate(self._rotations_cartesian):
-                gp_r = rot_grid_points[j, ir_gp]
-                self._gamma[:, :, gp_r, :] += gamma_irgp / multi
+        with nvtx.annotate('ir_gr_grid_points: outside loop', color='red'):
+            for ir_gp in ir_gr_grid_points:
+                cv_irgp = self._cv[:, ir_gp, :].copy()
+                self._cv[:, ir_gp, :] = 0
+                gv_irgp = self._gv[ir_gp].copy()
+                self._gv[ir_gp] = 0
+                gamma_irgp = self._gamma[:, :, ir_gp, :].copy()
+                self._gamma[:, :, ir_gp, :] = 0
+                multi = (rot_grid_points[:, ir_gp] == ir_gp).sum()
                 if self._is_isotope:
-                    self._gamma_iso[:, gp_r, :] += gamma_iso_irgp / multi
-                self._cv[:, gp_r, :] += cv_irgp / multi
-                self._gv[gp_r] += np.dot(gv_irgp, r.T) / multi
+                    gamma_iso_irgp = self._gamma_iso[:, ir_gp, :].copy()
+                    self._gamma_iso[:, ir_gp, :] = 0
+                with nvtx.annotate('_rotations_cartesian: outside loop', color='red'):    
+                    for j, r in enumerate(self._rotations_cartesian):
+                        gp_r = rot_grid_points[j, ir_gp]
+                        self._gamma[:, :, gp_r, :] += gamma_irgp / multi
+                        if self._is_isotope:
+                            self._gamma_iso[:, gp_r, :] += gamma_iso_irgp / multi
+                        self._cv[:, gp_r, :] += cv_irgp / multi
+                        self._gv[gp_r] += np.dot(gv_irgp, r.T) / multi
 
+    @nvtx.annotate(color="red")
     def _get_weights(self):
         """Return weights used for collision matrix and |X> and |f>.
 
@@ -687,12 +704,13 @@ class ConductivityLBTEBase(ConductivityBase):
         start = time.time()
 
         try:
-            import phono3py._phono3py as phono3c
+            with nvtx.annotate('phono3c.symmetrize_collision_matrix', color='blue'):
+                import phono3py._phono3py as phono3c
 
-            if self._log_level:
-                sys.stdout.write("- Making collision matrix symmetric " "(built-in) ")
-                sys.stdout.flush()
-            phono3c.symmetrize_collision_matrix(self._collision_matrix)
+                if self._log_level:
+                    sys.stdout.write("- Making collision matrix symmetric " "(built-in) ")
+                    sys.stdout.flush()
+                phono3c.symmetrize_collision_matrix(self._collision_matrix)
         except ImportError:
             if self._log_level:
                 sys.stdout.write("- Making collision matrix symmetric " "(numpy) ")
@@ -702,11 +720,13 @@ class ConductivityLBTEBase(ConductivityBase):
                 size = np.prod(self._collision_matrix.shape[2:4])
             else:
                 size = np.prod(self._collision_matrix.shape[2:5])
-            for i in range(self._collision_matrix.shape[0]):
-                for j in range(self._collision_matrix.shape[1]):
-                    col_mat = self._collision_matrix[i, j].reshape(size, size)
-                    col_mat += col_mat.T
-                    col_mat /= 2
+
+            with nvtx.annotate('_collision_matrix: outside loop', color='red'):
+                for i in range(self._collision_matrix.shape[0]):
+                    for j in range(self._collision_matrix.shape[1]):
+                        col_mat = self._collision_matrix[i, j].reshape(size, size)
+                        col_mat += col_mat.T
+                        col_mat /= 2
 
         if self._log_level:
             print("[%.3fs]" % (time.time() - start))
@@ -724,55 +744,61 @@ class ConductivityLBTEBase(ConductivityBase):
             sys.stdout.flush()
 
         col_mat = self._collision_matrix
-        for i, gp in enumerate(self._ir_grid_points):
-            freqs = self._frequencies[gp]
-            deg_sets = degenerate_sets(freqs)
-            for dset in deg_sets:
-                bi_set = []
-                for j in range(len(freqs)):
-                    if j in dset:
-                        bi_set.append(j)
+        with nvtx.annotate('_ir_grid_point: outside loop', color='red'):
+            for i, gp in enumerate(self._ir_grid_points):
+                freqs = self._frequencies[gp]
+                deg_sets = degenerate_sets(freqs)
 
-                if self._is_reducible_collision_matrix:
-                    i_data = self._pp.bz_grid.bzg2grg[gp]
-                    sum_col = col_mat[:, :, i_data, bi_set, :, :].sum(axis=2) / len(
-                        bi_set
-                    )
-                    for j in bi_set:
-                        col_mat[:, :, i_data, j, :, :] = sum_col
-                else:
-                    sum_col = col_mat[:, :, i, bi_set, :, :, :, :].sum(axis=2) / len(
-                        bi_set
-                    )
-                    for j in bi_set:
-                        col_mat[:, :, i, j, :, :, :, :] = sum_col
+                with nvtx.annotate('deg_sets: outside loop', color='red'):
+                    for dset in deg_sets:
+                        bi_set = []
+                        with nvtx.annotate('freq: outside loop', color='red'):
+                            for j in range(len(freqs)):
+                                if j in dset:
+                                    bi_set.append(j)
 
-        for i, gp in enumerate(self._ir_grid_points):
-            freqs = self._frequencies[gp]
-            deg_sets = degenerate_sets(freqs)
-            for dset in deg_sets:
-                bi_set = []
-                for j in range(len(freqs)):
-                    if j in dset:
-                        bi_set.append(j)
-                if self._is_reducible_collision_matrix:
-                    i_data = self._pp.bz_grid.bzg2grg[gp]
-                    sum_col = col_mat[:, :, :, :, i_data, bi_set].sum(axis=4) / len(
-                        bi_set
-                    )
-                    for j in bi_set:
-                        col_mat[:, :, :, :, i_data, j] = sum_col
-                else:
-                    sum_col = col_mat[:, :, :, :, :, i, bi_set, :].sum(axis=5) / len(
-                        bi_set
-                    )
-                    for j in bi_set:
-                        col_mat[:, :, :, :, :, i, j, :] = sum_col
+                        if self._is_reducible_collision_matrix:
+                            i_data = self._pp.bz_grid.bzg2grg[gp]
+                            sum_col = col_mat[:, :, i_data, bi_set, :, :].sum(axis=2) / len(
+                                bi_set
+                            )
+                            for j in bi_set:
+                                col_mat[:, :, i_data, j, :, :] = sum_col
+                        else:
+                            sum_col = col_mat[:, :, i, bi_set, :, :, :, :].sum(axis=2) / len(
+                                bi_set
+                            )
+                            for j in bi_set:
+                                col_mat[:, :, i, j, :, :, :, :] = sum_col
+
+        with nvtx.annotate('_ir_grid_point: outside loop', color='red'):
+            for i, gp in enumerate(self._ir_grid_points):
+                freqs = self._frequencies[gp]
+                deg_sets = degenerate_sets(freqs)
+                for dset in deg_sets:
+                    bi_set = []
+                    for j in range(len(freqs)):
+                        if j in dset:
+                            bi_set.append(j)
+                    if self._is_reducible_collision_matrix:
+                        i_data = self._pp.bz_grid.bzg2grg[gp]
+                        sum_col = col_mat[:, :, :, :, i_data, bi_set].sum(axis=4) / len(
+                            bi_set
+                        )
+                        for j in bi_set:
+                            col_mat[:, :, :, :, i_data, j] = sum_col
+                    else:
+                        sum_col = col_mat[:, :, :, :, :, i, bi_set, :].sum(axis=5) / len(
+                            bi_set
+                        )
+                        for j in bi_set:
+                            col_mat[:, :, :, :, :, i, j, :] = sum_col
 
         if self._log_level:
             print("[%.3fs]" % (time.time() - start))
             sys.stdout.flush()
 
+    @nvtx.annotate(color='red')
     def _get_X(self, i_temp, weights):
         """Calculate X in Chaput's paper."""
         num_band = len(self._pp.primitive) * 3
@@ -801,6 +827,7 @@ class ConductivityLBTEBase(ConductivityBase):
         else:
             return np.zeros_like(X.reshape(-1, 3))
 
+    @nvtx.annotate(color='red')
     def _get_Y(self, i_sigma, i_temp, weights, X):
         r"""Calculate Y = (\Omega^-1, X)."""
         solver = select_colmat_solver(self._pinv_solver)
@@ -930,6 +957,7 @@ class ConductivityLBTEBase(ConductivityBase):
         else:
             self._set_kappa_RTA_ir_colmat(i_sigma, i_temp, weights)
 
+    @nvtx.annotate(color='red')
     def _set_kappa_RTA_ir_colmat(
         self, kappa_RTA, mode_kappa_RTA, i_sigma, i_temp, weights
     ):
@@ -943,26 +971,28 @@ class ConductivityLBTEBase(ConductivityBase):
         X = self._get_X(i_temp, weights)
         Y = np.zeros_like(X)
         num_ir_grid_points = len(self._ir_grid_points)
-        for i, gp in enumerate(self._ir_grid_points):
-            g = self._get_main_diagonal(i, i_sigma, i_temp)
-            frequencies = self._frequencies[gp]
-            for j, f in enumerate(frequencies):
-                if f > self._pp.cutoff_frequency:
-                    i_mode = i * num_band + j
-                    old_settings = np.seterr(all="raise")
-                    try:
-                        Y[i_mode, :] = X[i_mode, :] / g[j]
-                    except Exception:
-                        print("=" * 26 + " Warning " + "=" * 26)
-                        print(
-                            " Unexpected physical condition of ph-ph "
-                            "interaction calculation was found."
-                        )
-                        print(
-                            " g[j]=%f at gp=%d, band=%d, freq=%f" % (g[j], gp, j + 1, f)
-                        )
-                        print("=" * 61)
-                    np.seterr(**old_settings)
+        with nvtx.annotate('_ir_grid_points: outside loop', color='red'):
+            for i, gp in enumerate(self._ir_grid_points):
+                g = self._get_main_diagonal(i, i_sigma, i_temp)
+                frequencies = self._frequencies[gp]
+                with nvtx.annotate('frequencies: outside loop', color='red'):
+                    for j, f in enumerate(frequencies):
+                        if f > self._pp.cutoff_frequency:
+                            i_mode = i * num_band + j
+                            old_settings = np.seterr(all="raise")
+                            try:
+                                Y[i_mode, :] = X[i_mode, :] / g[j]
+                            except Exception:
+                                print("=" * 26 + " Warning " + "=" * 26)
+                                print(
+                                    " Unexpected physical condition of ph-ph "
+                                    "interaction calculation was found."
+                                )
+                                print(
+                                    " g[j]=%f at gp=%d, band=%d, freq=%f" % (g[j], gp, j + 1, f)
+                                )
+                                print("=" * 61)
+                            np.seterr(**old_settings)
 
         self._set_mode_kappa(
             mode_kappa_RTA,
@@ -977,6 +1007,7 @@ class ConductivityLBTEBase(ConductivityBase):
             mode_kappa_RTA[i_sigma, i_temp].sum(axis=0).sum(axis=0) / N
         )
 
+    @nvtx.annotate(color='red')
     def _set_kappa_RTA_reducible_colmat(
         self, kappa_RTA, mode_kappa_RTA, i_sigma, i_temp, weights
     ):
@@ -1022,6 +1053,7 @@ class ConductivityLBTEBase(ConductivityBase):
             mode_kappa_RTA[i_sigma, i_temp].sum(axis=0).sum(axis=0) / N
         )
 
+    @nvtx.annotate(color='red')
     def _set_mode_kappa(
         self, mode_kappa, X, Y, num_grid_points, rotations_cartesian, i_sigma, i_temp
     ):
@@ -1037,29 +1069,31 @@ class ConductivityLBTEBase(ConductivityBase):
 
         """
         num_band = len(self._pp.primitive) * 3
-        for i, (v_gp, f_gp) in enumerate(
-            zip(
-                X.reshape(num_grid_points, num_band, 3),
-                Y.reshape(num_grid_points, num_band, 3),
-            )
-        ):
-            for j, (v, f) in enumerate(zip(v_gp, f_gp)):
-                # Do not consider three lowest modes at Gamma-point
-                # It is assumed that there are no imaginary modes.
-                if (self._pp.bz_grid.addresses[i] == 0).all() and j < 3:
-                    continue
+        
+        with nvtx.annotate('v_gp, f_gp: outside ij loop', color='red'):
+            for i, (v_gp, f_gp) in enumerate(
+                zip(
+                    X.reshape(num_grid_points, num_band, 3),
+                    Y.reshape(num_grid_points, num_band, 3),
+                )
+            ):
+                for j, (v, f) in enumerate(zip(v_gp, f_gp)):
+                    # Do not consider three lowest modes at Gamma-point
+                    # It is assumed that there are no imaginary modes.
+                    if (self._pp.bz_grid.addresses[i] == 0).all() and j < 3:
+                        continue
 
-                if rotations_cartesian is None:
-                    sum_k = np.outer(v, f)
-                else:
-                    sum_k = np.zeros((3, 3), dtype="double")
-                    for r in rotations_cartesian:
-                        sum_k += np.outer(np.dot(r, v), np.dot(r, f))
-                sum_k = sum_k + sum_k.T
-                for k, vxf in enumerate(
-                    ((0, 0), (1, 1), (2, 2), (1, 2), (0, 2), (0, 1))
-                ):
-                    mode_kappa[i_sigma, i_temp, i, j, k] = sum_k[vxf]
+                    if rotations_cartesian is None:
+                        sum_k = np.outer(v, f)
+                    else:
+                        sum_k = np.zeros((3, 3), dtype="double")
+                        for r in rotations_cartesian:
+                            sum_k += np.outer(np.dot(r, v), np.dot(r, f))
+                    sum_k = sum_k + sum_k.T
+                    for k, vxf in enumerate(
+                        ((0, 0), (1, 1), (2, 2), (1, 2), (0, 2), (0, 1))
+                    ):
+                        mode_kappa[i_sigma, i_temp, i, j, k] = sum_k[vxf]
 
         t = self._temperatures[i_temp]
         mode_kappa[i_sigma, i_temp] *= self._conversion_factor * Kb * t**2
@@ -1124,17 +1158,20 @@ class ConductivityLBTEBase(ConductivityBase):
                     self._mode_kappa[i_sigma, i_temp, i, j, k] = sum_k[vxf]
         self._mode_kappa *= -self._conversion_factor
 
+    @nvtx.annotate(color='red')
     def _set_mean_free_path(self, i_sigma, i_temp, weights, Y):
         t = self._temperatures[i_temp]
         # shape = (num_grid_points, num_band, 3),
-        for i, f_gp in enumerate(self._f_vectors):
-            for j, f in enumerate(f_gp):
-                cv = self._cv[i_temp, i, j]
-                if cv < 1e-10:
-                    continue
-                self._mfp[i_sigma, i_temp, i, j] = (
-                    -2 * t * np.sqrt(Kb / cv) * f / (2 * np.pi)
-                )
+        with nvtx.annotate('_f_vectors: outside loop', color='red'):
+            for i, f_gp in enumerate(self._f_vectors):
+                with nvtx.annotate('f_gp: outside loop', color='red'):
+                    for j, f in enumerate(f_gp):
+                        cv = self._cv[i_temp, i, j]
+                        if cv < 1e-10:
+                            continue
+                        self._mfp[i_sigma, i_temp, i, j] = (
+                            -2 * t * np.sqrt(Kb / cv) * f / (2 * np.pi)
+                        )
 
     def _show_log(self, i):
         gp = self._grid_points[i]
@@ -1318,48 +1355,50 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             (len(self._sigmas), num_temp, num_grid_points, num_band0, 6), dtype="double"
         )
 
+    @nvtx.annotate(color='red')
     def _set_kappa_at_sigmas(self, weights):
         """Calculate thermal conductivity from collision matrix."""
-        for j, sigma in enumerate(self._sigmas):
-            if self._log_level:
-                text = "----------- Thermal conductivity (W/m-k) "
-                if sigma:
-                    text += "for sigma=%s -----------" % sigma
-                else:
-                    text += "with tetrahedron method -----------"
-                print(text)
-                sys.stdout.flush()
+        with nvtx.annotate('_sigma', color='red'):
+            for j, sigma in enumerate(self._sigmas):
+                if self._log_level:
+                    text = "----------- Thermal conductivity (W/m-k) "
+                    if sigma:
+                        text += "for sigma=%s -----------" % sigma
+                    else:
+                        text += "with tetrahedron method -----------"
+                    print(text)
+                    sys.stdout.flush()
+            with nvtx.annotate('_temperatures', color='red'):
+                for k, t in enumerate(self._temperatures):
+                    if t > 0:
+                        self._set_kappa_RTA(j, k, weights)
 
-            for k, t in enumerate(self._temperatures):
-                if t > 0:
-                    self._set_kappa_RTA(j, k, weights)
-
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
-                    self._collision_eigenvalues[j, k] = w
-
-                    self._set_kappa(j, k, weights)
-
-                    if self._log_level:
-                        print(
-                            ("#%6s       " + " %-10s" * 6)
-                            % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+                        w = diagonalize_collision_matrix(
+                            self._collision_matrix,
+                            i_sigma=j,
+                            i_temp=k,
+                            pinv_solver=self._pinv_solver,
+                            log_level=self._log_level,
                         )
-                        print(
-                            ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa[j, k]))
-                        )
-                        print(
-                            (" %6s " + " %10.3f" * 6)
-                            % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
-                        )
-                        print("-" * 76)
-                        sys.stdout.flush()
+                        self._collision_eigenvalues[j, k] = w
+
+                        self._set_kappa(j, k, weights)
+
+                        if self._log_level:
+                            print(
+                                ("#%6s       " + " %-10s" * 6)
+                                % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+                            )
+                            print(
+                                ("%7.1f " + " %10.3f" * 6)
+                                % ((t,) + tuple(self._kappa[j, k]))
+                            )
+                            print(
+                                (" %6s " + " %10.3f" * 6)
+                                % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
+                            )
+                            print("-" * 76)
+                            sys.stdout.flush()
 
         if self._log_level:
             print("")
@@ -1665,7 +1704,7 @@ class ConductivityWignerLBTE(ConductivityWignerMixIn, ConductivityLBTEBase):
             self._mode_kappa_C[i_sigma, i_temp].sum(axis=0).sum(axis=0).sum(axis=0) / N
         ).real
 
-
+@nvtx.annotate(color="red")
 def get_thermal_conductivity_LBTE(
     interaction: Interaction,
     temperatures=None,
@@ -1765,20 +1804,21 @@ def get_thermal_conductivity_LBTE(
 
     # This computes pieces of collision matrix sequentially.
     for i in lbte:
-        if write_pp:
-            write_phph(
-                lbte, interaction, i, filename=output_filename, compression=compression
-            )
+        with nvtx.annotate("LBTE: loop", color="red"):
+            if write_pp:
+                write_phph(
+                    lbte, interaction, i, filename=output_filename, compression=compression
+                )
 
-        if write_collision:
-            ConductivityLBTEWriter.write_collision(
-                lbte,
-                interaction,
-                i=i,
-                is_reducible_collision_matrix=is_reducible_collision_matrix,
-                is_one_gp_colmat=(grid_points is not None),
-                filename=output_filename,
-            )
+            if write_collision:
+                ConductivityLBTEWriter.write_collision(
+                    lbte,
+                    interaction,
+                    i=i,
+                    is_reducible_collision_matrix=is_reducible_collision_matrix,
+                    is_one_gp_colmat=(grid_points is not None),
+                    filename=output_filename,
+                )
 
         lbte.delete_gp_collision_and_pp()
 
@@ -1811,7 +1851,7 @@ def get_thermal_conductivity_LBTE(
 
     return lbte
 
-
+@nvtx.annotate(color='red')
 def diagonalize_collision_matrix(
     collision_matrices, i_sigma=None, i_temp=None, pinv_solver=0, log_level=0
 ):
@@ -1876,20 +1916,22 @@ def diagonalize_collision_matrix(
             routine = ["dsyev", "dsyevd"][solver - 1]
             sys.stdout.write("Diagonalizing by lapacke %s... " % routine)
             sys.stdout.flush()
-        import phono3py._phono3py as phono3c
+        
+        with nvtx.annotate('phono3c.diagonalize_collision_matrix', color='blue'):
+            import phono3py._phono3py as phono3c
 
-        w = np.zeros(size, dtype="double")
-        if i_sigma is None:
-            _i_sigma = 0
-        else:
-            _i_sigma = i_sigma
-        if i_temp is None:
-            _i_temp = 0
-        else:
-            _i_temp = i_temp
-        phono3c.diagonalize_collision_matrix(
-            collision_matrices, w, _i_sigma, _i_temp, 0.0, (solver + 1) % 2, 0
-        )  # only diagonalization
+            w = np.zeros(size, dtype="double")
+            if i_sigma is None:
+                _i_sigma = 0
+            else:
+                _i_sigma = i_sigma
+            if i_temp is None:
+                _i_temp = 0
+            else:
+                _i_temp = i_temp
+            phono3c.diagonalize_collision_matrix(
+                collision_matrices, w, _i_sigma, _i_temp, 0.0, (solver + 1) % 2, 0
+            )  # only diagonalization
     elif solver == 3:  # np.linalg.eigh depends on dsyevd.
         if log_level:
             sys.stdout.write("Diagonalizing by np.linalg.eigh... ")
