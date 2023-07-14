@@ -1368,6 +1368,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                     print(text)
                     sys.stdout.flush()
         with nvtx.annotate('_temperatures', color='red'):
+            # TODO: this temperature for loop seems to be paralelizable
             for k, t in enumerate(self._temperatures):
                 if t > 0:
                     self._set_kappa_RTA(j, k, weights)
