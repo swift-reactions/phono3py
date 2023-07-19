@@ -60,6 +60,7 @@ from phono3py.phonon3.interaction import Interaction, all_bands_exist
 from phono3py.phonon.grid import get_grid_points_by_rotations
 
 import nvtx
+from multiprocessing import Process, active_children
 
 class ConductivityLBTEBase(ConductivityBase):
     """Base class of ConductivityLBTE*.
@@ -68,6 +69,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
     """
 
+    @nvtx.annotate(color='red')
     def __init__(
         self,
         interaction: Interaction,
@@ -150,14 +152,17 @@ class ConductivityLBTEBase(ConductivityBase):
             self._allocate_values()
 
     @property
+    # @nvtx.annotate(color='red')
     def collision_matrix(self):
         """Setter and getter of collision matrix."""
         return self._collision_matrix
 
+    # @nvtx.annotate(color='red')
     @collision_matrix.setter
     def collision_matrix(self, collision_matrix):
         self._collision_matrix = collision_matrix
 
+    @nvtx.annotate(color='red')
     def get_collision_matrix(self):
         """Return collision matrix."""
         warnings.warn(
@@ -167,6 +172,7 @@ class ConductivityLBTEBase(ConductivityBase):
         )
         return self.collision_matrix
 
+    @nvtx.annotate(color='red')
     def set_collision_matrix(self, collision_matrix):
         """Set collision matrix."""
         warnings.warn(
@@ -176,14 +182,17 @@ class ConductivityLBTEBase(ConductivityBase):
         )
         self.collision_matrix = collision_matrix
 
+    @nvtx.annotate(color='red')
     def get_collision_eigenvalues(self):
         """Return eigenvalues of collision matrix."""
         return self._collision_eigenvalues
 
+    @nvtx.annotate(color='red')
     def get_frequencies_all(self):
         """Return phonon frequencies on GR-grid."""
         return self._frequencies[self._pp.bz_grid.grg2bzg]
 
+    @nvtx.annotate(color='red')
     def get_f_vectors(self):
         """Return f vectors.
 
@@ -192,6 +201,7 @@ class ConductivityLBTEBase(ConductivityBase):
         """
         return self._f_vectors
 
+    @nvtx.annotate(color='red')
     def get_mean_free_path(self):
         """Return mean free path.
 
@@ -199,7 +209,8 @@ class ConductivityLBTEBase(ConductivityBase):
 
         """
         return self._mfp
-
+    
+    @nvtx.annotate(color='red')
     def delete_gp_collision_and_pp(self):
         """Deallocate large arrays."""
         self._collision.delete_integration_weights()
@@ -221,14 +232,17 @@ class ConductivityLBTEBase(ConductivityBase):
             weights = self._prepare_collision_matrix()
             self._set_kappa_at_sigmas(weights)
 
+    # @nvtx.annotate(color='red')
     @abstractmethod
     def _set_kappa(self, i_sigma, i_temp, weights):
         raise NotImplementedError
-
+    
+    # @nvtx.annotate(color='red')
     @abstractmethod
     def _set_kappa_at_sigmas(weights):
         raise NotImplementedError
 
+    @nvtx.annotate(color='red')
     def _set_kappa_ir_colmat(self, kappa, mode_kappa, i_sigma, i_temp, weights):
         """Calculate direct solution thermal conductivity of ir colmat.
 
@@ -285,6 +299,7 @@ class ConductivityLBTEBase(ConductivityBase):
         mode_kappa[i_sigma, i_temp] /= len(self._rotations_cartesian)
         kappa[i_sigma, i_temp] = mode_kappa[i_sigma, i_temp].sum(axis=0).sum(axis=0) / N
 
+    @nvtx.annotate(color='red')
     def _get_rot_grid_points(self):
         num_ir_grid_points = len(self._ir_grid_points)
         rot_grid_points = np.zeros(
@@ -300,6 +315,7 @@ class ConductivityLBTEBase(ConductivityBase):
             )
         return rot_grid_points
 
+    @nvtx.annotate(color='red')
     def _allocate_values(self):
         """Allocate arrays."""
         if self._is_reducible_collision_matrix:
@@ -307,6 +323,7 @@ class ConductivityLBTEBase(ConductivityBase):
         else:
             self._allocate_ir_colmat_values()
 
+    @nvtx.annotate(color='red')
     def _allocate_local_values(self, num_grid_points):
         """Allocate grid point local arrays."""
         num_band0 = len(self._pp.band_indices)
@@ -339,6 +356,7 @@ class ConductivityLBTEBase(ConductivityBase):
             order="C",
         )
 
+    @nvtx.annotate(color='red')
     def _run_at_grid_point(self):
         """Calculate properties at a grid point."""
         i_gp = self._grid_point_count
@@ -370,6 +388,7 @@ class ConductivityLBTEBase(ConductivityBase):
         if self._log_level:
             self._show_log(i_gp)
 
+    @nvtx.annotate(color='red')
     def _allocate_reducible_colmat_values(self):
         """Allocate arrays for reducilble collision matrix."""
         num_band0 = len(self._pp.band_indices)
@@ -401,6 +420,7 @@ class ConductivityLBTEBase(ConductivityBase):
             order="C",
         )
 
+    @nvtx.annotate(color='red')
     def _allocate_ir_colmat_values(self):
         """Allocate arrays for ir collision matrix."""
         num_band0 = len(self._pp.band_indices)
@@ -436,6 +456,7 @@ class ConductivityLBTEBase(ConductivityBase):
             order="C",
         )
 
+    @nvtx.annotate(color='red')
     def _set_collision_matrix_at_sigmas(self, i_gp):
         """Calculate collision matrices at grid point.
 
@@ -596,6 +617,7 @@ class ConductivityLBTEBase(ConductivityBase):
                 for ll in range(num_band):
                     self._collision_matrix[j, k, i, ll, i, ll] += main_diagonal[ll]
 
+    @nvtx.annotate(color='red')
     def _expand_reducible_collisions(self, ir_gr_grid_points, rot_grid_points):
         """Fill elements of full collision matrix by symmetry."""
         start = time.time()
@@ -632,6 +654,7 @@ class ConductivityLBTEBase(ConductivityBase):
             sys.stdout.flush()
 
     
+    @nvtx.annotate(color='red')
     def _expand_local_values(self, ir_gr_grid_points, rot_grid_points):
         """Fill elements of local properties at grid points."""
         with nvtx.annotate('ir_gr_grid_points: outside loop', color='red'):
@@ -695,6 +718,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
         return weights / np.sqrt(self._rot_grid_points.shape[1])
 
+    @nvtx.annotate(color='red')
     def _symmetrize_collision_matrix(self):
         r"""Symmetrize collision matrix.
 
@@ -732,6 +756,7 @@ class ConductivityLBTEBase(ConductivityBase):
             print("[%.3fs]" % (time.time() - start))
             sys.stdout.flush()
 
+    @nvtx.annotate(color='red')
     def _average_collision_matrix_by_degeneracy(self):
         """Average symmetrically equivalent elemetns of collision matrix."""
         start = time.time()
@@ -895,6 +920,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
         return Y
 
+    @nvtx.annotate(color='red')
     def _set_f_vectors(self, Y, num_grid_points, weights):
         """Calculate f-vectors.
 
@@ -907,6 +933,7 @@ class ConductivityLBTEBase(ConductivityBase):
             (Y / 2).reshape(num_grid_points, num_band * 3).T / weights
         ).T.reshape(self._f_vectors.shape)
 
+    @nvtx.annotate(color='red')
     def _get_eigvals_pinv(self, i_sigma, i_temp):
         """Return inverse eigenvalues of eigenvalues > epsilon."""
         w = self._collision_eigenvalues[i_sigma, i_temp]
@@ -921,6 +948,7 @@ class ConductivityLBTEBase(ConductivityBase):
                 e[ll] = 1 / val
         return e
 
+    @nvtx.annotate(color='red')
     def _get_I(self, a, b, size, plus_transpose=True):
         """Return I matrix in Chaput's PRL paper.
 
@@ -947,6 +975,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
         return I_mat
 
+    # @nvtx.annotate(color='red')
     @abstractmethod
     def _set_kappa_RTA(self, i_sigma, i_temp, weights):
         raise NotImplementedError
@@ -1098,6 +1127,7 @@ class ConductivityLBTEBase(ConductivityBase):
         t = self._temperatures[i_temp]
         mode_kappa[i_sigma, i_temp] *= self._conversion_factor * Kb * t**2
 
+    @nvtx.annotate(color='red')
     def _set_mode_kappa_Chaput(self, mode_kappa, i_sigma, i_temp, weights):
         """Calculate mode kappa by the way in Laurent Chaput's PRL paper.
 
@@ -1143,6 +1173,7 @@ class ConductivityLBTEBase(ConductivityBase):
         factor = self._conversion_factor * Kb * t**2
         mode_kappa[i_sigma, i_temp] *= factor
 
+    @nvtx.annotate(color='red')
     def _set_mode_kappa_from_mfp(self, weights, rotations_cartesian, i_sigma, i_temp):
         for i, (v_gp, mfp_gp, cv_gp) in enumerate(
             zip(self._gv, self._mfp[i_sigma, i_temp], self._cv[i_temp])
@@ -1173,6 +1204,7 @@ class ConductivityLBTEBase(ConductivityBase):
                             -2 * t * np.sqrt(Kb / cv) * f / (2 * np.pi)
                         )
 
+    @nvtx.annotate(color='red')
     def _show_log(self, i):
         gp = self._grid_points[i]
         frequencies = self._frequencies[gp]
@@ -1206,6 +1238,7 @@ class ConductivityLBTEBase(ConductivityBase):
 
         sys.stdout.flush()
 
+    @nvtx.annotate(color='red')
     def _py_symmetrize_collision_matrix(self):
         num_band = len(self._pp.primitive) * 3
         num_ir_grid_points = len(self._ir_grid_points)
@@ -1217,6 +1250,7 @@ class ConductivityLBTEBase(ConductivityBase):
                             for n in range(3):
                                 self._py_set_symmetrized_element(i, j, k, ll, m, n)
 
+    @nvtx.annotate(color='red')
     def _py_set_symmetrized_element(self, i, j, k, ll, m, n):
         sym_val = (
             self._collision_matrix[:, :, i, j, k, ll, m, n]
@@ -1225,6 +1259,7 @@ class ConductivityLBTEBase(ConductivityBase):
         self._collision_matrix[:, :, i, j, k, ll, m, n] = sym_val
         self._collision_matrix[:, :, ll, m, n, i, j, k] = sym_val
 
+    @nvtx.annotate(color='red')
     def _py_symmetrize_collision_matrix_no_kappa_stars(self):
         num_band = len(self._pp.primitive) * 3
         num_ir_grid_points = len(self._ir_grid_points)
@@ -1234,6 +1269,7 @@ class ConductivityLBTEBase(ConductivityBase):
                     for ll in range(num_band):
                         self._py_set_symmetrized_element_no_kappa_stars(i, j, k, ll)
 
+    @nvtx.annotate(color='red')
     def _py_set_symmetrized_element_no_kappa_stars(self, i, j, k, ll):
         sym_val = (
             self._collision_matrix[:, :, i, j, k, ll]
@@ -1304,6 +1340,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         """Return RTA lattice thermal conductivity."""
         return self._kappa_RTA
 
+    @nvtx.annotate(color='red')
     def get_kappa_RTA(self):
         """Return RTA lattice thermal conductivity."""
         warnings.warn(
@@ -1318,6 +1355,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         """Return RTA mode lattice thermal conductivities."""
         return self._mode_kappa_RTA
 
+    @nvtx.annotate(color='red')
     def get_mode_kappa_RTA(self):
         """Return RTA mode lattice thermal conductivities."""
         warnings.warn(
@@ -1327,6 +1365,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         )
         return self.mode_kappa_RTA
 
+    @nvtx.annotate(color='red')
     def _allocate_local_values(self, num_grid_points):
         """Allocate grid point local arrays.
 
@@ -1355,6 +1394,36 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             (len(self._sigmas), num_temp, num_grid_points, num_band0, 6), dtype="double"
         )
 
+    @nvtx.annotate(color='red')
+    def _multi_process(self, j, k, weights, t):
+        w = diagonalize_collision_matrix(
+            self._collision_matrix,
+            i_sigma=j,
+            i_temp=k,
+            pinv_solver=self._pinv_solver,
+            log_level=self._log_level,
+        )
+        self._collision_eigenvalues[j, k] = w
+
+        self._set_kappa(j, k, weights)
+
+        if self._log_level:
+            print(
+                ("#%6s       " + " %-10s" * 6)
+                % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+            )
+            print(
+                ("%7.1f " + " %10.3f" * 6)
+                % ((t,) + tuple(self._kappa[j, k]))
+            )
+            print(
+                (" %6s " + " %10.3f" * 6)
+                % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
+            )
+            print("-" * 76)
+            sys.stdout.flush()
+
+    @nvtx.annotate(color='red')
     def _set_kappa_at_sigmas(self, weights):
         """Calculate thermal conductivity from collision matrix."""
         with nvtx.annotate('_sigmas', color='red'):
@@ -1372,37 +1441,22 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             for k, t in enumerate(self._temperatures):
                 if t > 0:
                     self._set_kappa_RTA(j, k, weights)
+                    
+                    Process(target=self._multi_process, args=(j,
+                        k,
+                        weights, t)).start()
+                    
+                    # get a list of all active child processes
+                    children = active_children()
+                    # report a count of active children
+                    print(f'Active Children Count: {len(children)}')
 
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
-                    self._collision_eigenvalues[j, k] = w
-
-                    self._set_kappa(j, k, weights)
-
-                    if self._log_level:
-                        print(
-                            ("#%6s       " + " %-10s" * 6)
-                            % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
-                        )
-                        print(
-                            ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa[j, k]))
-                        )
-                        print(
-                            (" %6s " + " %10.3f" * 6)
-                            % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
-                        )
-                        print("-" * 76)
-                        sys.stdout.flush()
+                    
 
         if self._log_level:
             print("")
 
+    @nvtx.annotate(color='red')
     def _set_kappa(self, i_sigma, i_temp, weights):
         if self._is_reducible_collision_matrix:
             self._set_kappa_reducible_colmat(
@@ -1413,6 +1467,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                 self._kappa, self._mode_kappa, i_sigma, i_temp, weights
             )
 
+    @nvtx.annotate(color='red')
     def _set_kappa_RTA(self, i_sigma, i_temp, weights):
         if self._is_reducible_collision_matrix:
             self._set_kappa_RTA_reducible_colmat(
@@ -1575,14 +1630,27 @@ class ConductivityWignerLBTE(ConductivityWignerMixIn, ConductivityLBTEBase):
             for k, t in enumerate(self._temperatures):
                 if t > 0:
                     self._set_kappa_RTA(j, k, weights)
+                    
+                    w = Process(target=diagonalize_collision_matrix, args=(self._collision_matrix,
+                        j,
+                        k,
+                        self._pinv_solver,
+                        self._log_level))
+                    
+                    w.start()
+                    # get a list of all active child processes
+                    children = active_children()
+                    # report a count of active children
+                    print(f'Active Children Count: {len(children)}')
 
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
+
+                    # w = diagonalize_collision_matrix(
+                    #     self._collision_matrix,
+                    #     i_sigma=j,
+                    #     i_temp=k,
+                    #     pinv_solver=self._pinv_solver,
+                    #     log_level=self._log_level,
+                    # )
                     self._collision_eigenvalues[j, k] = w
 
                     self._set_kappa(j, k, weights)
