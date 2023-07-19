@@ -1436,20 +1436,21 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                         text += "with tetrahedron method -----------"
                     print(text)
                     sys.stdout.flush()
-        with nvtx.annotate('_temperatures', color='red'):
-            # TODO: this temperature for loop seems to be paralelizable
-            for k, t in enumerate(self._temperatures):
-                if t > 0:
-                    self._set_kappa_RTA(j, k, weights)
-                    
-                    Process(target=self._multi_process, args=(j,
-                        k,
-                        weights, t)).start()
-                    
-                    # get a list of all active child processes
-                    children = active_children()
-                    # report a count of active children
-                    print(f'Active Children Count: {len(children)}')
+            
+            with nvtx.annotate('_temperatures', color='blue'):
+                # TODO: this temperature for loop seems to be paralelizable
+                for k, t in enumerate(self._temperatures):
+                    if t > 0:
+                        self._set_kappa_RTA(j, k, weights)
+                        
+                        Process(target=self._multi_process, args=(j,
+                            k,
+                            weights, t)).start()
+                        
+                        # get a list of all active child processes
+                        children = active_children()
+                        # report a count of active children
+                        print(f'Active Children Count: {len(children)}')
 
                     
 
