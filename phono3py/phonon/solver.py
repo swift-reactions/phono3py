@@ -37,7 +37,9 @@ import numpy as np
 from phonopy.structure.cells import sparse_to_dense_svecs
 from phonopy.units import VaspToTHz
 
+import nvtx
 
+@nvtx.annotate(color='blue')
 def run_phonon_solver_c(
     dm,
     frequencies,

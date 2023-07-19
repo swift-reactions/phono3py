@@ -1355,50 +1355,98 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             (len(self._sigmas), num_temp, num_grid_points, num_band0, 6), dtype="double"
         )
 
+    def _sigma_temp(self, item):
+        sigma, temp, weights = item
+        i_sigma, sigma = sigma
+        i_temp, temp = temp
+
+        self._set_kappa_RTA(i_sigma, i_temp, weights)
+
+        w = diagonalize_collision_matrix(
+            self._collision_matrix,
+            i_sigma=i_sigma,
+            i_temp=i_temp,
+            pinv_solver=self._pinv_solver,
+            log_level=self._log_level,
+        )
+
+        self._collision_eigenvalues[i_sigma, i_temp] = w
+
+        self._set_kappa(i_sigma, i_temp, weights)
+
+        if self._log_level:
+            print(
+                ("#%6s       " + " %-10s" * 6)
+                % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+            )
+            print(
+                ("%7.1f " + " %10.3f" * 6)
+                % ((i_temp,) + tuple(self._kappa[i_sigma, i_temp]))
+            )
+            print(
+                (" %6s " + " %10.3f" * 6)
+                % (("(RTA)",) + tuple(self._kappa_RTA[i_sigma, i_temp]))
+            )
+            print("-" * 76)
+            sys.stdout.flush()
+
+        return w
+
     def _set_kappa_at_sigmas(self, weights):
         """Calculate thermal conductivity from collision matrix."""
-        with nvtx.annotate('_sigmas', color='red'):
-            for j, sigma in enumerate(self._sigmas):
-                if self._log_level:
-                    text = "----------- Thermal conductivity (W/m-k) "
-                    if sigma:
-                        text += "for sigma=%s -----------" % sigma
-                    else:
-                        text += "with tetrahedron method -----------"
-                    print(text)
-                    sys.stdout.flush()
-        with nvtx.annotate('_temperatures', color='red'):
-            # TODO: this temperature for loop seems to be paralelizable
-            for k, t in enumerate(self._temperatures):
-                if t > 0:
-                    self._set_kappa_RTA(j, k, weights)
 
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
-                    self._collision_eigenvalues[j, k] = w
+        from itertools import product
+        from multiprocessing import Pool
 
-                    self._set_kappa(j, k, weights)
+        items = list(product(enumerate(self._sigmas), enumerate(self._temperatures), weights)) # type: ignore
+        # breakpoint()
+        with nvtx.annotate('_sigma_temp: pool', color='green'):
+            with Pool(processes=4) as pool:
+                result = pool.map(self._sigma_temp, items)
+            # breakpoint()
 
-                    if self._log_level:
-                        print(
-                            ("#%6s       " + " %-10s" * 6)
-                            % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
-                        )
-                        print(
-                            ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa[j, k]))
-                        )
-                        print(
-                            (" %6s " + " %10.3f" * 6)
-                            % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
-                        )
-                        print("-" * 76)
-                        sys.stdout.flush()
+        # with nvtx.annotate('_sigmas', color='red'):
+        #     for j, sigma in enumerate(self._sigmas):
+        #         if self._log_level:
+        #             text = "----------- Thermal conductivity (W/m-k) "
+        #             if sigma:
+        #                 text += "for sigma=%s -----------" % sigma
+        #             else:
+        #                 text += "with tetrahedron method -----------"
+        #             print(text)
+        #             sys.stdout.flush()
+        #     with nvtx.annotate('_temperatures', color='red'):
+        #         # TODO: this temperature for loop seems to be paralelizable
+        #         for k, t in enumerate(self._temperatures):
+        #             if t > 0:
+        #                 self._set_kappa_RTA(j, k, weights)
+
+        #                 w = diagonalize_collision_matrix(
+        #                     self._collision_matrix,
+        #                     i_sigma=j,
+        #                     i_temp=k,
+        #                     pinv_solver=self._pinv_solver,
+        #                     log_level=self._log_level,
+        #                 )
+        #                 self._collision_eigenvalues[j, k] = w
+
+        #                 self._set_kappa(j, k, weights)
+
+        #                 if self._log_level:
+        #                     print(
+        #                         ("#%6s       " + " %-10s" * 6)
+        #                         % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+        #                     )
+        #                     print(
+        #                         ("%7.1f " + " %10.3f" * 6)
+        #                         % ((t,) + tuple(self._kappa[j, k]))
+        #                     )
+        #                     print(
+        #                         (" %6s " + " %10.3f" * 6)
+        #                         % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
+        #                     )
+        #                     print("-" * 76)
+        #                     sys.stdout.flush()
 
         if self._log_level:
             print("")
@@ -1560,72 +1608,144 @@ class ConductivityWignerLBTE(ConductivityWignerMixIn, ConductivityLBTEBase):
             dtype=complex_dtype,
         )
 
+    @nvtx.annotate(color='green')
+    def _sigma_temp(self, sigma, temp, weights):
+        i_sigma, sigma = sigma
+        i_temp, temp = temp
+
+        self._set_kappa_RTA(i_sigma, i_temp, weights)
+
+        w = diagonalize_collision_matrix(
+            self._collision_matrix,
+            i_sigma=i_sigma,
+            i_temp=i_temp,
+            pinv_solver=self._pinv_solver,
+            log_level=self._log_level,
+        )
+        self._collision_eigenvalues[i_sigma, i_temp] = w
+
+        self._set_kappa(i_sigma, i_temp, weights)
+
+        if self._log_level:
+            print(
+                ("#%6s       " + " %-10s" * 6)
+                % (
+                    "         \t\t  T(K)",
+                    "xx",
+                    "yy",
+                    "zz",
+                    "yz",
+                    "xz",
+                    "xy",
+                )
+            )
+            print(
+                "K_P_exact\t\t"
+                + ("%7.1f " + " %10.3f" * 6)
+                % ((temp,) + tuple(self._kappa_P_exact[i_sigma, i_temp]))
+            )
+            print(
+                "(K_P_RTA)\t\t"
+                + ("%7.1f " + " %10.3f" * 6)
+                % ((temp,) + tuple(self._kappa_P_RTA[i_sigma, i_temp]))
+            )
+            print(
+                "K_C      \t\t"
+                + ("%7.1f " + " %10.3f" * 6)
+                % ((temp,) + tuple(self._kappa_C[i_sigma, i_temp].real))
+            )
+            print(" ")
+            print(
+                "K_TOT=K_P_exact+K_C\t"
+                + ("%7.1f " + " %10.3f" * 6)
+                % (
+                    (temp,)
+                    + tuple(self._kappa_C[i_sigma, i_temp] + self._kappa_P_exact[i_sigma, i_temp])
+                )
+            )
+            print("-" * 76)
+            sys.stdout.flush()
+
     def _set_kappa_at_sigmas(self, weights):
         """Calculate thermal conductivity from collision matrix."""
-        for j, sigma in enumerate(self._sigmas):
-            if self._log_level:
-                text = "----------- Thermal conductivity (W/m-k) "
-                if sigma:
-                    text += "for sigma=%s -----------" % sigma
-                else:
-                    text += "with tetrahedron method -----------"
-                print(text)
-                sys.stdout.flush()
 
-            for k, t in enumerate(self._temperatures):
-                if t > 0:
-                    self._set_kappa_RTA(j, k, weights)
+        from itertools import product
+        from multiprocessing import Pool
 
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
-                    self._collision_eigenvalues[j, k] = w
+        if self._sigmas is None:
+            self.sigmas = [0.01]
 
-                    self._set_kappa(j, k, weights)
+        items = list(product(enumerate(self._sigmas), enumerate(self._temperatures), weights)) # type: ignore
 
-                    if self._log_level:
-                        print(
-                            ("#%6s       " + " %-10s" * 6)
-                            % (
-                                "         \t\t  T(K)",
-                                "xx",
-                                "yy",
-                                "zz",
-                                "yz",
-                                "xz",
-                                "xy",
-                            )
-                        )
-                        print(
-                            "K_P_exact\t\t"
-                            + ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa_P_exact[j, k]))
-                        )
-                        print(
-                            "(K_P_RTA)\t\t"
-                            + ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa_P_RTA[j, k]))
-                        )
-                        print(
-                            "K_C      \t\t"
-                            + ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa_C[j, k].real))
-                        )
-                        print(" ")
-                        print(
-                            "K_TOT=K_P_exact+K_C\t"
-                            + ("%7.1f " + " %10.3f" * 6)
-                            % (
-                                (t,)
-                                + tuple(self._kappa_C[j, k] + self._kappa_P_exact[j, k])
-                            )
-                        )
-                        print("-" * 76)
-                        sys.stdout.flush()
+        with Pool(processes=None) as pool:
+            pool.apply_async(self._sigma_temp, items)
+
+        ####
+
+        # for j, sigma in enumerate(self._sigmas):
+        #     if self._log_level:
+        #         text = "----------- Thermal conductivity (W/m-k) "
+        #         if sigma:
+        #             text += "for sigma=%s -----------" % sigma
+        #         else:
+        #             text += "with tetrahedron method -----------"
+        #         print(text)
+        #         sys.stdout.flush()
+
+        #     for k, t in enumerate(self._temperatures):
+        #         if t > 0:
+        #             self._set_kappa_RTA(j, k, weights)
+
+        #             w = diagonalize_collision_matrix(
+        #                 self._collision_matrix,
+        #                 i_sigma=j,
+        #                 i_temp=k,
+        #                 pinv_solver=self._pinv_solver,
+        #                 log_level=self._log_level,
+        #             )
+        #             self._collision_eigenvalues[j, k] = w
+
+        #             self._set_kappa(j, k, weights)
+
+        #             if self._log_level:
+        #                 print(
+        #                     ("#%6s       " + " %-10s" * 6)
+        #                     % (
+        #                         "         \t\t  T(K)",
+        #                         "xx",
+        #                         "yy",
+        #                         "zz",
+        #                         "yz",
+        #                         "xz",
+        #                         "xy",
+        #                     )
+        #                 )
+        #                 print(
+        #                     "K_P_exact\t\t"
+        #                     + ("%7.1f " + " %10.3f" * 6)
+        #                     % ((t,) + tuple(self._kappa_P_exact[j, k]))
+        #                 )
+        #                 print(
+        #                     "(K_P_RTA)\t\t"
+        #                     + ("%7.1f " + " %10.3f" * 6)
+        #                     % ((t,) + tuple(self._kappa_P_RTA[j, k]))
+        #                 )
+        #                 print(
+        #                     "K_C      \t\t"
+        #                     + ("%7.1f " + " %10.3f" * 6)
+        #                     % ((t,) + tuple(self._kappa_C[j, k].real))
+        #                 )
+        #                 print(" ")
+        #                 print(
+        #                     "K_TOT=K_P_exact+K_C\t"
+        #                     + ("%7.1f " + " %10.3f" * 6)
+        #                     % (
+        #                         (t,)
+        #                         + tuple(self._kappa_C[j, k] + self._kappa_P_exact[j, k])
+        #                     )
+        #                 )
+        #                 print("-" * 76)
+        #                 sys.stdout.flush()
 
         if self._log_level:
             print("")
