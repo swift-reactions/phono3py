@@ -1672,9 +1672,6 @@ class ConductivityWignerLBTE(ConductivityWignerMixIn, ConductivityLBTEBase):
         from itertools import product
         from multiprocessing import Pool
 
-        if self._sigmas is None:
-            self.sigmas = [0.01]
-
         items = list(product(enumerate(self._sigmas), enumerate(self._temperatures), weights)) # type: ignore
 
         with Pool(processes=None) as pool:
