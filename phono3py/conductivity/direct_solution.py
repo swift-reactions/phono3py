@@ -1385,10 +1385,14 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
 
             for gp in range(num_mesh_points):
                 frequencies = self._frequencies[gp]
-                for j, f in enumerate(frequencies):
-                    if f > self._pp.cutoff_frequency:
-                        i_mode = gp * num_band + j
-                        Y[i_mode, :] = X[i_mode, :] / v_diag[i_mode]
+                j = np.arange(len(frequencies))
+                i_mode = gp * num_band + j
+                Y[i_mode, :] = X[i_mode, :] / v_diag[i_mode]
+                Y[i_mode, :] *= frequencies>self._pp.cutoff_frequency
+                # for j, f in enumerate(frequencies):
+                #     if f > self._pp.cutoff_frequency:
+                #         i_mode = gp * num_band + j
+                #         Y[i_mode, :] = X[i_mode, :] / v_diag[i_mode]
             # Putting self._rotations_cartesian is to symmetrize kappa.
             # None can be put instead for watching pure information.
             self._set_mode_kappa(
@@ -1551,15 +1555,14 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         """Calculate thermal conductivity from collision matrix."""
 
         from itertools import product
-        from multiprocessing import Pool
-        import math
+        import concurrent.futures
 
-        items = list(product(enumerate(self._sigmas), enumerate(self._temperatures))) # type: ignore
+        items = list(product(enumerate(self._sigmas), enumerate([t for t in self._temperatures if t > 0]))) # type: ignore
         items = [(i_sigma, sigma, i_temp, temp, weights) for (i_sigma, sigma), (i_temp, temp) in items]
         
         with nvtx.annotate('_sigma_temp: pool', color='green'):
-            with Pool(processes=4) as pool:
-                result = pool.map(self._sigma_temp, items)
+            with concurrent.futures.ProcessPoolExecutor(max_workers=16) as executor:
+                result = list(executor.map(self._sigma_temp, items))
 
         for idx, item in enumerate(items):
             i_sigma, _, i_temp, _, weights  = item
