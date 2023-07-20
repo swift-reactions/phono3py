@@ -1304,6 +1304,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         """Return RTA lattice thermal conductivity."""
         return self._kappa_RTA
 
+    @nvtx.annotate(color='red')
     def get_kappa_RTA(self):
         """Return RTA lattice thermal conductivity."""
         warnings.warn(
@@ -1318,6 +1319,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         """Return RTA mode lattice thermal conductivities."""
         return self._mode_kappa_RTA
 
+    @nvtx.annotate(color='red')
     def get_mode_kappa_RTA(self):
         """Return RTA mode lattice thermal conductivities."""
         warnings.warn(
@@ -1327,6 +1329,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         )
         return self.mode_kappa_RTA
 
+    @nvtx.annotate(color='red')
     def _allocate_local_values(self, num_grid_points):
         """Allocate grid point local arrays.
 
@@ -1355,10 +1358,17 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             (len(self._sigmas), num_temp, num_grid_points, num_band0, 6), dtype="double"
         )
 
-    def _sigma_temp(self, item):
-        sigma, temp, weights = item
+    @nvtx.annotate(color='blue')
+    def _sigma_temp(self, weights, item):
+        sigma, temp = item
         i_sigma, sigma = sigma
         i_temp, temp = temp
+
+        # print(f'i_sigma = {i_sigma}')
+        # print(f'sigma = {sigma}')
+        # print(f'i_temp = {i_temp}')
+        # print(f'temp = {temp}')
+        # print(f'weights = {weights}')
 
         self._set_kappa_RTA(i_sigma, i_temp, weights)
 
@@ -1381,7 +1391,7 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             )
             print(
                 ("%7.1f " + " %10.3f" * 6)
-                % ((i_temp,) + tuple(self._kappa[i_sigma, i_temp]))
+                % ((temp,) + tuple(self._kappa[i_sigma, i_temp]))
             )
             print(
                 (" %6s " + " %10.3f" * 6)
@@ -1391,19 +1401,33 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
             sys.stdout.flush()
 
         return w
-
+    
+    @nvtx.annotate(color='red')
     def _set_kappa_at_sigmas(self, weights):
         """Calculate thermal conductivity from collision matrix."""
 
         from itertools import product
         from multiprocessing import Pool
 
-        items = list(product(enumerate(self._sigmas), enumerate(self._temperatures), weights)) # type: ignore
-        # breakpoint()
+        # print(f'self._sigmas = {self._sigmas}')
+        # print(f'self._sigmas = {len(self._sigmas)}')
+        # print(f'self._temperatures = {self._temperatures}')
+        # print(f'self._temperatures = {len(self._temperatures)}')
+        # print(f'weights = {weights}')
+
+        items = list(product(enumerate(self._sigmas), enumerate(self._temperatures))) # type: ignore
+        # print(items)
+
+        from functools import partial
+
+        g = partial(self._sigma_temp, weights)
+        
         with nvtx.annotate('_sigma_temp: pool', color='green'):
-            with Pool(processes=4) as pool:
-                result = pool.map(self._sigma_temp, items)
+            with Pool(processes=16) as pool:
+                result = pool.map(g, items)
             # breakpoint()
+
+        # print(f'self._sigmas = {self._sigmas}')
 
         # with nvtx.annotate('_sigmas', color='red'):
         #     for j, sigma in enumerate(self._sigmas):
