@@ -60,6 +60,7 @@ from phono3py.phonon3.interaction import Interaction, all_bands_exist
 from phono3py.phonon.grid import get_grid_points_by_rotations
 
 import nvtx
+from mpi4py import MPI
 
 class ConductivityLBTEBase(ConductivityBase):
     """Base class of ConductivityLBTE*.
@@ -1357,6 +1358,10 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
 
     def _set_kappa_at_sigmas(self, weights):
         """Calculate thermal conductivity from collision matrix."""
+
+        comm = MPI.COMM_WORLD
+        rank = comm.Get_rank()
+        size = comm.Get_size()
         with nvtx.annotate('_sigmas', color='red'):
             for j, sigma in enumerate(self._sigmas):
                 if self._log_level:
@@ -1367,38 +1372,53 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                         text += "with tetrahedron method -----------"
                     print(text)
                     sys.stdout.flush()
-        with nvtx.annotate('_temperatures', color='red'):
-            # TODO: this temperature for loop seems to be paralelizable
-            for k, t in enumerate(self._temperatures):
-                if t > 0:
-                    self._set_kappa_RTA(j, k, weights)
+                with nvtx.annotate('_temperatures', color='red'):
+                    # TODO: this temperature for loop seems to be paralelizable
+                    for k, t in enumerate(self._temperatures):
+                        if k%size!=rank:
+                            continue
+                        if t > 0:
+                            self._set_kappa_RTA(j, k, weights)
 
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
-                    self._collision_eigenvalues[j, k] = w
+                            w = diagonalize_collision_matrix(
+                                self._collision_matrix,
+                                i_sigma=j,
+                                i_temp=k,
+                                pinv_solver=self._pinv_solver,
+                                log_level=self._log_level,
+                            )
+                            self._collision_eigenvalues[j, k] = w
 
-                    self._set_kappa(j, k, weights)
+                            self._set_kappa(j, k, weights)
 
-                    if self._log_level:
-                        print(
-                            ("#%6s       " + " %-10s" * 6)
-                            % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
-                        )
-                        print(
-                            ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa[j, k]))
-                        )
-                        print(
-                            (" %6s " + " %10.3f" * 6)
-                            % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
-                        )
-                        print("-" * 76)
-                        sys.stdout.flush()
+                            if self._log_level:
+                                print(
+                                    ("#%6s       " + " %-10s" * 6)
+                                    % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+                                )
+                                print(
+                                    ("%7.1f " + " %10.3f" * 6)
+                                    % ((t,) + tuple(self._kappa[j, k]))
+                                )
+                                print(
+                                    (" %6s " + " %10.3f" * 6)
+                                    % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
+                                )
+                                print("-" * 76)
+                                sys.stdout.flush()
+
+        mode_kappa_RTA=comm.reduce(self.mode_kappa_RTA, root=0, op=MPI.SUM)
+        kappa_RTA=comm.reduce(self.kappa_RTA, root=0, op=MPI.SUM)
+        _collision_eigenvalues=comm.reduce(self._collision_eigenvalues, root=0, op=MPI.SUM)
+        mode_kappa=comm.reduce(self.mode_kappa, root=0, op=MPI.SUM)
+        kappa=comm.reduce(self.kappa, root=0, op=MPI.SUM)
+
+        if rank==0:
+            self._mode_kappa_RTA=mode_kappa_RTA
+            self._kappa_RTA=kappa_RTA
+            self._collision_eigenvalues=_collision_eigenvalues
+            self._mode_kappa=mode_kappa
+            self._kappa=kappa
 
         if self._log_level:
             print("")
