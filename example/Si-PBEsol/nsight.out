@@ -1,4 +1,4 @@
-[<phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afec9d2d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe146610>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15a950>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15aa50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15ab50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15ae50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15af10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15b090>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe159e50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15acd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe159f90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15b390>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15b450>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15b5d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15b750>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15b890>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15bb10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7afe15bcd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034950>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60349d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034a50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034ad0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034b50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034bd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034c50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034cd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034d50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034dd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034e50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034ed0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034f50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6034fd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035050>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60350d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035150>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60351d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035250>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60352d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035350>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60353d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035450>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60354d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035550>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60355d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035650>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60356d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035750>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60357d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035850>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60358d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035950>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60359d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035a50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035ad0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035b50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035bd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035c50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035cd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035d50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035dd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035e50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035ed0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035f50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6035fd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036050>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60360d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036150>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60361d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036250>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60362d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036350>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60363d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036450>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60364d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036550>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60365d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036650>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60366d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036750>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60367d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6036850>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af60368d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044790>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044810>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044890>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044910>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044990>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044b10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044b90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044c10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044c90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044d10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044d90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044a90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045150>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6044a50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045190>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045210>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045290>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045310>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045390>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045410>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045490>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045510>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045590>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045610>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045690>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045710>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045790>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045810>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f7af6045890>]
+[<phonopy.structure.atoms.PhonopyAtoms object at 0x7f475267b190>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f47526be890>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7dc10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7dd90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7ded0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e1d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e290>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e410>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e4d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e050>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e590>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7ce50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7e7d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7ec50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7f310>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7eb50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7f910>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7fa90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751b7ef90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d14dd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d14e50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d14c90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d14ed0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d14f50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15190>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15210>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d152d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15310>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15090>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15390>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15450>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15010>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d154d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15650>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d156d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15990>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15a50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15ad0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d157d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15850>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15910>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15890>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15b10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15bd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15c50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15f10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16550>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16910>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16a50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d169d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16a90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d14910>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15dd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15e90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15550>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16010>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15590>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d163d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d164d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16210>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16350>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16fd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17090>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17110>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15d10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16bd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16c50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16cd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16650>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16750>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d166d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d167d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d173d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17490>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17510>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16110>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16090>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16e10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16ed0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16f10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15b90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16d10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d176d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d177d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17750>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17890>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d15d50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d161d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d171d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17250>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d172d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16810>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16b90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16b10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17b90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17b10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17c50>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17310>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17f90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d16610>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17950>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17a10>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17ed0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17190>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d175d0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17610>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17d90>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17dd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17cd0>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4751d17690>, <phonopy.structure.atoms.PhonopyAtoms object at 0x7f4788759a10>]
 (111, 64, 3)
 Displacement dataset for fc3 was read from "phono3py_disp.yaml".
 Sets of supercell forces were read from "FORCES_FC3".
@@ -1456,307 +1456,307 @@ Frequency     group velocity (x, y, z)     |gv|
    9.461   (   3.989    1.252    0.000)    4.181
   12.920   (  -7.848   -0.831   -0.000)    7.891
 =================== End of collection of collisions ===================
-- Averaging collision matrix elements by phonon degeneracy [2.689s]
-- Making collision matrix symmetric (built-in) [0.166s]
+- Averaging collision matrix elements by phonon degeneracy [2.808s]
+- Making collision matrix symmetric (built-in) [0.185s]
 ----------- Thermal conductivity (W/m-k) with tetrahedron method -----------
-Diagonalizing by lapacke dsyevd... [0.844s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [1.049s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   10.0       0.005      0.005      0.005      0.000     -0.000     -0.000
+   10.0       0.005      0.005      0.005     -0.000      0.000     -0.000
   (RTA)       0.065      0.065      0.065      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.843s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.008s]
+Diagonalizing by lapacke dsyevd... [0.969s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   20.0       0.012      0.012      0.012     -0.000      0.000      0.000
+   20.0       0.012      0.012      0.012      0.000     -0.000     -0.000
   (RTA)       0.116      0.116      0.116      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.891s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.861s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   30.0       0.027      0.027      0.027      0.000      0.000     -0.000
+   30.0       0.029      0.029      0.029      0.000      0.000      0.000
   (RTA)       0.130      0.130      0.130      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.908s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [1.012s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   40.0       0.057      0.057      0.057      0.000     -0.000     -0.000
+   40.0       0.058      0.058      0.058      0.000     -0.000     -0.000
   (RTA)       0.158      0.158      0.158      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.772s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [1.019s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   50.0       0.091      0.091      0.091      0.000      0.000     -0.000
+   50.0       0.087      0.087      0.087      0.000     -0.000      0.000
   (RTA)       0.193      0.193      0.193      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.733s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [1.020s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   60.0       0.118      0.118      0.118      0.000      0.000     -0.000
-  (RTA)       0.223      0.223      0.223      0.000     -0.000     -0.000
+   60.0       0.115      0.115      0.115      0.000     -0.000      0.000
+  (RTA)       0.223      0.223      0.223      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.939s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.997s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   70.0       0.138      0.138      0.138      0.000      0.000     -0.000
+   70.0       0.128      0.128      0.128     -0.000      0.000     -0.000
   (RTA)       0.244      0.244      0.244      0.000     -0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [1.033s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.958s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   80.0       0.148      0.148      0.148     -0.000     -0.000     -0.000
+   80.0       0.147      0.147      0.147      0.000     -0.000     -0.000
   (RTA)       0.256      0.256      0.256      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.877s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.995s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-   90.0       0.158      0.158      0.158      0.000      0.000     -0.000
+   90.0       0.144      0.144      0.144      0.000      0.000     -0.000
   (RTA)       0.261      0.261      0.261      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.788s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [1.015s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  100.0       0.164      0.164      0.164      0.000     -0.000     -0.000
+  100.0       0.152      0.152      0.152      0.000     -0.000     -0.000
   (RTA)       0.261      0.261      0.261      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.743s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.851s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  110.0       0.166      0.166      0.166      0.000      0.000     -0.000
+  110.0       0.148      0.148      0.148      0.000     -0.000     -0.000
   (RTA)       0.257      0.257      0.257      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.827s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.842s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  120.0       0.160      0.160      0.160      0.000     -0.000      0.000
+  120.0       0.147      0.147      0.147      0.000      0.000      0.000
   (RTA)       0.251      0.251      0.251      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.799s]
+Diagonalizing by lapacke dsyevd... [0.882s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  130.0       0.154      0.154      0.154      0.000     -0.000     -0.000
+  130.0       0.136      0.136      0.136      0.000      0.000     -0.000
   (RTA)       0.244      0.244      0.244      0.000     -0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.795s]
+Diagonalizing by lapacke dsyevd... [0.957s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  140.0       0.142      0.142      0.142      0.000     -0.000     -0.000
-  (RTA)       0.237      0.237      0.237      0.000      0.000     -0.000
+  140.0       0.152      0.152      0.152      0.000      0.000     -0.000
+  (RTA)       0.237      0.237      0.237      0.000     -0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.801s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
+Diagonalizing by lapacke dsyevd... [0.890s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  150.0       0.143      0.143      0.143      0.000     -0.000     -0.000
+  150.0       0.142      0.142      0.142      0.000     -0.000      0.000
   (RTA)       0.229      0.229      0.229      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.850s]
+Diagonalizing by lapacke dsyevd... [0.915s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  160.0       0.137      0.137      0.137      0.000     -0.000     -0.000
+  160.0       0.139      0.139      0.139      0.000      0.000     -0.000
   (RTA)       0.221      0.221      0.221      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.805s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.923s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  170.0       0.138      0.138      0.138      0.000      0.000      0.000
+  170.0       0.162      0.162      0.162      0.000      0.000     -0.000
   (RTA)       0.213      0.213      0.213      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.798s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.882s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  180.0       0.132      0.132      0.132      0.000      0.000     -0.000
+  180.0       0.139      0.139      0.139      0.000     -0.000     -0.000
   (RTA)       0.206      0.206      0.206      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.813s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.939s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  190.0       0.133      0.133      0.133      0.000      0.000     -0.000
+  190.0       0.110      0.110      0.110     -0.000      0.000      0.000
   (RTA)       0.199      0.199      0.199      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.693s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.818s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  200.0       0.139      0.139      0.139      0.000      0.000     -0.000
+  200.0       0.133      0.133      0.133      0.000      0.000      0.000
   (RTA)       0.192      0.192      0.192      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.705s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.008s]
+Diagonalizing by lapacke dsyevd... [0.899s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  210.0       0.120      0.120      0.120      0.000     -0.000     -0.000
+  210.0       0.112      0.112      0.112      0.000      0.000      0.000
   (RTA)       0.185      0.185      0.185      0.000     -0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.772s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.790s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  220.0       0.119      0.119      0.119      0.000     -0.000     -0.000
+  220.0       0.130      0.130      0.130      0.000      0.000      0.000
   (RTA)       0.179      0.179      0.179      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.761s]
+Diagonalizing by lapacke dsyevd... [0.910s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  230.0       0.112      0.112      0.112      0.000     -0.000     -0.000
+  230.0       0.124      0.124      0.124     -0.000     -0.000     -0.000
   (RTA)       0.173      0.173      0.173      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.705s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.955s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  240.0       0.114      0.114      0.114      0.000     -0.000     -0.000
+  240.0       0.131      0.131      0.131      0.000      0.000     -0.000
   (RTA)       0.167      0.167      0.167      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.788s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.005s]
+Diagonalizing by lapacke dsyevd... [0.933s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  250.0       0.114      0.114      0.114      0.000     -0.000     -0.000
+  250.0       0.114      0.114      0.114      0.000      0.000     -0.000
   (RTA)       0.162      0.162      0.162      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.744s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+Diagonalizing by lapacke dsyevd... [0.872s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  260.0       0.105      0.105      0.105      0.000      0.000     -0.000
+  260.0       0.101      0.101      0.101      0.000      0.000     -0.000
   (RTA)       0.157      0.157      0.157      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.778s]
+Diagonalizing by lapacke dsyevd... [0.974s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  270.0       0.098      0.098      0.098      0.000      0.000     -0.000
+  270.0       0.097      0.097      0.097      0.000      0.000     -0.000
   (RTA)       0.152      0.152      0.152      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.756s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.007s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  280.0       0.101      0.101      0.101      0.000      0.000     -0.000
-  (RTA)       0.148      0.148      0.148      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.722s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  290.0       0.096      0.096      0.096      0.000      0.000      0.000
-  (RTA)       0.144      0.144      0.144      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.792s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.008s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  300.0       0.099      0.099      0.099      0.000      0.000     -0.000
-  (RTA)       0.140      0.140      0.140      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.737s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  310.0       0.091      0.091      0.091      0.000      0.000     -0.000
-  (RTA)       0.136      0.136      0.136      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.767s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  320.0       0.086      0.086      0.086      0.000     -0.000      0.000
-  (RTA)       0.132      0.132      0.132      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.748s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  330.0       0.086      0.086      0.086      0.000      0.000     -0.000
-  (RTA)       0.129      0.129      0.129      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.739s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.007s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  340.0       0.095      0.095      0.095      0.000      0.000     -0.000
-  (RTA)       0.125      0.125      0.125      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.785s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.008s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  350.0       0.087      0.087      0.087     -0.000     -0.000     -0.000
-  (RTA)       0.122      0.122      0.122      0.000     -0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.691s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  360.0       0.081      0.081      0.081      0.000     -0.000     -0.000
-  (RTA)       0.119      0.119      0.119      0.000     -0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.729s]
+Diagonalizing by lapacke dsyevd... [1.085s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.005s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  370.0       0.082      0.082      0.082     -0.000      0.000     -0.000
-  (RTA)       0.116      0.116      0.116      0.000      0.000     -0.000
+  280.0       0.104      0.104      0.104      0.000     -0.000     -0.000
+  (RTA)       0.148      0.148      0.148      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.705s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  380.0       0.074      0.074      0.074      0.000      0.000     -0.000
-  (RTA)       0.113      0.113      0.113      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.738s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  390.0       0.083      0.083      0.083     -0.000     -0.000     -0.000
-  (RTA)       0.111      0.111      0.111      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.723s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  400.0       0.074      0.074      0.074      0.000     -0.000     -0.000
-  (RTA)       0.108      0.108      0.108      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.780s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  410.0       0.072      0.072      0.072      0.000      0.000     -0.000
-  (RTA)       0.106      0.106      0.106      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.740s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  420.0       0.073      0.073      0.073      0.000      0.000     -0.000
-  (RTA)       0.103      0.103      0.103      0.000     -0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.769s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  430.0       0.068      0.068      0.068      0.000     -0.000     -0.000
-  (RTA)       0.101      0.101      0.101      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.717s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  440.0       0.080      0.080      0.080      0.000      0.000     -0.000
-  (RTA)       0.099      0.099      0.099      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.701s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  450.0       0.071      0.071      0.071      0.000     -0.000     -0.000
-  (RTA)       0.097      0.097      0.097      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.805s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  460.0       0.058      0.058      0.058      0.000     -0.000     -0.000
-  (RTA)       0.095      0.095      0.095      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.759s]
-Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
-#  T(K)        xx         yy         zz         yz         xz         xy        
-  470.0       0.064      0.064      0.064      0.000     -0.000     -0.000
-  (RTA)       0.093      0.093      0.093      0.000      0.000     -0.000
-----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.772s]
+Diagonalizing by lapacke dsyevd... [0.976s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.007s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  480.0       0.068      0.068      0.068      0.000      0.000     -0.000
-  (RTA)       0.091      0.091      0.091      0.000      0.000     -0.000
+  290.0       0.099      0.099      0.099      0.000      0.000      0.000
+  (RTA)       0.144      0.144      0.144      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.760s]
+Diagonalizing by lapacke dsyevd... [0.879s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.009s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  300.0       0.083      0.083      0.083      0.000      0.000     -0.000
+  (RTA)       0.140      0.140      0.140      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.962s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.007s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  310.0       0.095      0.095      0.095      0.000     -0.000      0.000
+  (RTA)       0.136      0.136      0.136      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.920s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  490.0       0.068      0.068      0.068      0.000      0.000     -0.000
-  (RTA)       0.090      0.090      0.090      0.000      0.000     -0.000
+  320.0       0.086      0.086      0.086      0.000     -0.000     -0.000
+  (RTA)       0.132      0.132      0.132      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
-Diagonalizing by lapacke dsyevd... [0.832s]
+Diagonalizing by lapacke dsyevd... [0.951s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.009s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  330.0       0.094      0.094      0.094      0.000      0.000     -0.000
+  (RTA)       0.129      0.129      0.129      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.940s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  340.0       0.091      0.091      0.091      0.000      0.000     -0.000
+  (RTA)       0.125      0.125      0.125      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.979s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  350.0       0.091      0.091      0.091      0.000      0.000     -0.000
+  (RTA)       0.122      0.122      0.122      0.000     -0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [1.115s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  360.0       0.085      0.085      0.085      0.000     -0.000     -0.000
+  (RTA)       0.119      0.119      0.119      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.967s]
 Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
 #  T(K)        xx         yy         zz         yz         xz         xy        
-  500.0       0.064      0.064      0.064      0.000     -0.000      0.000
+  370.0       0.078      0.078      0.078      0.000     -0.000     -0.000
+  (RTA)       0.116      0.116      0.116      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [1.024s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.005s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  380.0       0.080      0.080      0.080      0.000      0.000     -0.000
+  (RTA)       0.113      0.113      0.113      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.964s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.005s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  390.0       0.072      0.072      0.072      0.000     -0.000     -0.000
+  (RTA)       0.111      0.111      0.111      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.972s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  400.0       0.071      0.071      0.071     -0.000     -0.000     -0.000
+  (RTA)       0.108      0.108      0.108      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [1.066s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  410.0       0.080      0.080      0.080      0.000      0.000     -0.000
+  (RTA)       0.106      0.106      0.106      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.941s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  420.0       0.072      0.072      0.072      0.000      0.000      0.000
+  (RTA)       0.103      0.103      0.103      0.000     -0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [1.019s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  430.0       0.068      0.068      0.068      0.000      0.000     -0.000
+  (RTA)       0.101      0.101      0.101      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.973s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  440.0       0.067      0.067      0.067     -0.000     -0.000     -0.000
+  (RTA)       0.099      0.099      0.099      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [1.036s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  450.0       0.077      0.077      0.077      0.000     -0.000     -0.000
+  (RTA)       0.097      0.097      0.097      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [1.028s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  460.0       0.066      0.066      0.066      0.000      0.000     -0.000
+  (RTA)       0.095      0.095      0.095      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.964s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  470.0       0.064      0.064      0.064      0.000      0.000     -0.000
+  (RTA)       0.093      0.093      0.093      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.959s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.003s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  480.0       0.061      0.061      0.061      0.000      0.000     -0.000
+  (RTA)       0.091      0.091      0.091      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.989s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.006s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  490.0       0.061      0.061      0.061      0.000     -0.000      0.000
+  (RTA)       0.090      0.090      0.090      0.000      0.000     -0.000
+----------------------------------------------------------------------------
+Diagonalizing by lapacke dsyevd... [0.881s]
+Calculating pseudo-inv by ignoring abs(eig)<1.0e-08 (np.dot) [0.004s]
+#  T(K)        xx         yy         zz         yz         xz         xy        
+  500.0       0.063      0.063      0.063      0.000     -0.000     -0.000
   (RTA)       0.088      0.088      0.088      0.000      0.000     -0.000
 ----------------------------------------------------------------------------
 
@@ -1765,108 +1765,108 @@ Thermal conductivity related properties were written into
 Eigenvalues of collision matrix were written into "coleigs-m151515.hdf5"
 [[[ 0.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00
     0.00000000e+00  0.00000000e+00]
-  [ 4.86108656e-03  4.86108656e-03  4.86108656e-03  4.71918363e-20
-   -1.25397306e-20 -2.01320469e-20]
-  [ 1.17370380e-02  1.17370380e-02  1.17370380e-02 -7.41511440e-20
-    4.57571248e-19  8.11868034e-20]
-  [ 2.74247593e-02  2.74247593e-02  2.74247593e-02  1.11259730e-18
-    3.19765686e-19 -7.80623096e-19]
-  [ 5.70629988e-02  5.70629988e-02  5.70629988e-02  8.99667617e-19
-   -4.85553499e-20 -2.12910705e-18]
-  [ 9.09270657e-02  9.09270657e-02  9.09270657e-02  1.67811782e-18
-    6.47275470e-19 -1.61219168e-18]
-  [ 1.18077276e-01  1.18077276e-01  1.18077276e-01  2.20891367e-18
-    1.23896237e-18 -8.93872296e-19]
-  [ 1.37781019e-01  1.37781019e-01  1.37781019e-01  2.88264952e-18
-    2.99239015e-19 -5.47615743e-18]
-  [ 1.47705409e-01  1.47705409e-01  1.47705409e-01 -5.46184750e-18
-   -3.95412881e-19 -6.13454858e-19]
-  [ 1.58187448e-01  1.58187448e-01  1.58187448e-01  7.01567407e-18
-    2.33559920e-18 -4.28472800e-18]
-  [ 1.64188701e-01  1.64188701e-01  1.64188701e-01  3.16559707e-19
-   -1.75866952e-18 -4.69896741e-18]
-  [ 1.66481838e-01  1.66481838e-01  1.66481838e-01  2.35800857e-18
-    6.81558065e-19 -5.27443593e-18]
-  [ 1.59883548e-01  1.59883548e-01  1.59883548e-01  3.88413504e-19
-   -3.83354861e-18  4.62869507e-18]
-  [ 1.53716283e-01  1.53716283e-01  1.53716283e-01  3.84749821e-18
-   -2.02321492e-18 -9.07989950e-19]
-  [ 1.41947317e-01  1.41947317e-01  1.41947317e-01  2.69995782e-18
-   -1.47352275e-19 -7.50847966e-19]
-  [ 1.43021589e-01  1.43021589e-01  1.43021589e-01  2.12140785e-18
-   -1.39668698e-18 -2.60112720e-18]
-  [ 1.36621532e-01  1.36621532e-01  1.36621532e-01  2.04930541e-18
-   -2.67023772e-19 -3.38693998e-18]
-  [ 1.37862420e-01  1.37862420e-01  1.37862420e-01  5.46331806e-18
-    3.27667397e-18  1.34565382e-18]
-  [ 1.31571565e-01  1.31571565e-01  1.31571565e-01  2.33351762e-18
-    1.59007966e-19 -2.42733198e-18]
-  [ 1.33411402e-01  1.33411402e-01  1.33411402e-01  3.54152770e-18
-    1.43245927e-18 -2.88192292e-18]
-  [ 1.38558925e-01  1.38558925e-01  1.38558925e-01  7.32400333e-19
-    2.49208716e-19 -3.78824599e-18]
-  [ 1.19649720e-01  1.19649720e-01  1.19649720e-01  1.01588727e-18
-   -1.15822741e-18 -1.43328326e-18]
-  [ 1.19354649e-01  1.19354649e-01  1.19354649e-01  2.20982698e-18
-   -6.65564827e-19 -2.44322559e-18]
-  [ 1.11872669e-01  1.11872669e-01  1.11872669e-01  9.14588383e-19
-   -7.71052240e-19 -3.31335143e-18]
-  [ 1.13795767e-01  1.13795767e-01  1.13795767e-01  3.05959814e-18
-   -2.06562718e-19 -1.77248212e-18]
-  [ 1.13960104e-01  1.13960104e-01  1.13960104e-01  3.65364809e-18
-   -2.85228738e-19 -1.08521485e-18]
-  [ 1.04975446e-01  1.04975446e-01  1.04975446e-01  1.59601142e-18
-    3.51533199e-19 -3.72434825e-18]
-  [ 9.77550016e-02  9.77550016e-02  9.77550016e-02  3.28074309e-18
-    1.67499690e-18 -2.20389598e-19]
-  [ 1.01376055e-01  1.01376055e-01  1.01376055e-01  1.52474925e-18
-    1.13981507e-18 -2.28414279e-18]
-  [ 9.63984694e-02  9.63984694e-02  9.63984694e-02  1.65262398e-18
-    2.81348377e-19  4.66669850e-19]
-  [ 9.91466298e-02  9.91466298e-02  9.91466298e-02  2.14096947e-18
-    2.50614308e-19 -3.63499234e-19]
-  [ 9.07658750e-02  9.07658750e-02  9.07658750e-02  1.70965373e-18
-    8.22019851e-19 -1.93642073e-18]
-  [ 8.55774846e-02  8.55774846e-02  8.55774846e-02  1.43499440e-19
-   -7.64094196e-19  4.10498470e-19]
-  [ 8.61602393e-02  8.61602393e-02  8.61602393e-02  2.50570534e-18
-    7.73577249e-19 -2.71605235e-18]
-  [ 9.51503604e-02  9.51503604e-02  9.51503604e-02  3.57375757e-18
-    1.74770381e-18 -1.33030942e-18]
-  [ 8.67964894e-02  8.67964894e-02  8.67964894e-02 -6.98168130e-19
-   -2.00305027e-18 -1.74287608e-18]
-  [ 8.07459612e-02  8.07459612e-02  8.07459612e-02  3.29441931e-18
-   -1.98826780e-18 -2.35903671e-19]
-  [ 8.16956320e-02  8.16956320e-02  8.16956320e-02 -1.06455390e-18
-    2.56486967e-19 -2.46026616e-18]
-  [ 7.40152510e-02  7.40152510e-02  7.40152510e-02  1.68592347e-18
-    1.82921538e-18 -1.39205155e-18]
-  [ 8.30041981e-02  8.30041981e-02  8.30041981e-02 -2.42635220e-19
-   -5.99297442e-19 -4.72025858e-19]
-  [ 7.44710618e-02  7.44710618e-02  7.44710618e-02  1.45008309e-18
-   -9.02751679e-20 -2.17412532e-18]
-  [ 7.24969513e-02  7.24969513e-02  7.24969513e-02  1.48597562e-18
-    1.58696580e-19 -1.43667104e-18]
-  [ 7.25491192e-02  7.25491192e-02  7.25491192e-02  1.63319836e-18
-    3.45183329e-19 -1.71943686e-18]
-  [ 6.78385163e-02  6.78385163e-02  6.78385163e-02  1.24256664e-18
-   -3.09527785e-19 -1.36548177e-18]
-  [ 7.99637029e-02  7.99637029e-02  7.99637029e-02  2.05157997e-19
-    1.08125726e-18 -2.31272728e-18]
-  [ 7.06732947e-02  7.06732947e-02  7.06732947e-02  1.72723085e-18
-   -1.54149628e-18 -3.42082127e-19]
-  [ 5.82467174e-02  5.82467174e-02  5.82467174e-02  1.50192161e-18
-   -8.12927590e-19 -1.19395585e-18]
-  [ 6.43884157e-02  6.43884157e-02  6.43884157e-02  1.39290988e-18
-   -2.15879900e-19 -9.96001134e-19]
-  [ 6.79470571e-02  6.79470571e-02  6.79470571e-02  6.73932671e-19
-    2.48134333e-19 -2.02388856e-18]
-  [ 6.77950956e-02  6.77950956e-02  6.77950956e-02  1.96344107e-18
-    1.35184185e-18 -2.54340459e-18]
-  [ 6.42404470e-02  6.42404470e-02  6.42404470e-02  1.63435078e-18
-   -2.42884277e-19  3.45716601e-20]]]
-Generating '/tmp/nsys-report-6aeb.qdstrm'
-[1/4] [0%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [5%                          ] quickstart.nsys-rep[1/4] [6%                          ] quickstart.nsys-rep[1/4] [7%                          ] quickstart.nsys-rep[1/4] [8%                          ] quickstart.nsys-rep[1/4] [9%                          ] quickstart.nsys-rep[1/4] [10%                         ] quickstart.nsys-rep[1/4] [11%                         ] quickstart.nsys-rep[1/4] [12%                         ] quickstart.nsys-rep[1/4] [13%                         ] quickstart.nsys-rep[1/4] [14%                         ] quickstart.nsys-rep[1/4] [=15%                        ] quickstart.nsys-rep[1/4] [=16%                        ] quickstart.nsys-rep[1/4] [=17%                        ] quickstart.nsys-rep[1/4] [==18%                       ] quickstart.nsys-rep[1/4] [==19%                       ] quickstart.nsys-rep[1/4] [==20%                       ] quickstart.nsys-rep[1/4] [==21%                       ] quickstart.nsys-rep[1/4] [===22%                      ] quickstart.nsys-rep[1/4] [===23%                      ] quickstart.nsys-rep[1/4] [===24%                      ] quickstart.nsys-rep[1/4] [====25%                     ] quickstart.nsys-rep[1/4] [====26%                     ] quickstart.nsys-rep[1/4] [====27%                     ] quickstart.nsys-rep[1/4] [====28%                     ] quickstart.nsys-rep[1/4] [=====29%                    ] quickstart.nsys-rep[1/4] [=====30%                    ] quickstart.nsys-rep[1/4] [=====31%                    ] quickstart.nsys-rep[1/4] [=====32%                    ] quickstart.nsys-rep[1/4] [======33%                   ] quickstart.nsys-rep[1/4] [======34%                   ] quickstart.nsys-rep[1/4] [======35%                   ] quickstart.nsys-rep[1/4] [=======36%                  ] quickstart.nsys-rep[1/4] [=======37%                  ] quickstart.nsys-rep[1/4] [=======38%                  ] quickstart.nsys-rep[1/4] [=======39%                  ] quickstart.nsys-rep[1/4] [========40%                 ] quickstart.nsys-rep[1/4] [========41%                 ] quickstart.nsys-rep[1/4] [========42%                 ] quickstart.nsys-rep[1/4] [=========43%                ] quickstart.nsys-rep[1/4] [=========44%                ] quickstart.nsys-rep[1/4] [=========45%                ] quickstart.nsys-rep[1/4] [=========46%                ] quickstart.nsys-rep[1/4] [==========47%               ] quickstart.nsys-rep[1/4] [==========48%               ] quickstart.nsys-rep[1/4] [==========49%               ] quickstart.nsys-rep[1/4] [===========50%              ] quickstart.nsys-rep[1/4] [===========51%              ] quickstart.nsys-rep[1/4] [===========52%              ] quickstart.nsys-rep[1/4] [===========53%              ] quickstart.nsys-rep[1/4] [============54%             ] quickstart.nsys-rep[1/4] [============55%             ] quickstart.nsys-rep[1/4] [============56%             ] quickstart.nsys-rep[1/4] [============57%             ] quickstart.nsys-rep[1/4] [=============58%            ] quickstart.nsys-rep[1/4] [=============59%            ] quickstart.nsys-rep[1/4] [=============60%            ] quickstart.nsys-rep[1/4] [==============61%           ] quickstart.nsys-rep[1/4] [==============62%           ] quickstart.nsys-rep[1/4] [==============63%           ] quickstart.nsys-rep[1/4] [==============64%           ] quickstart.nsys-rep[1/4] [===============65%          ] quickstart.nsys-rep[1/4] [===============66%          ] quickstart.nsys-rep[1/4] [===============67%          ] quickstart.nsys-rep[1/4] [================68%         ] quickstart.nsys-rep[1/4] [================69%         ] quickstart.nsys-rep[1/4] [================70%         ] quickstart.nsys-rep[1/4] [================71%         ] quickstart.nsys-rep[1/4] [=================72%        ] quickstart.nsys-rep[1/4] [=================73%        ] quickstart.nsys-rep[1/4] [=================74%        ] quickstart.nsys-rep[1/4] [==================75%       ] quickstart.nsys-rep[1/4] [==================76%       ] quickstart.nsys-rep[1/4] [==================77%       ] quickstart.nsys-rep[1/4] [==================78%       ] quickstart.nsys-rep[1/4] [===================79%      ] quickstart.nsys-rep[1/4] [===================80%      ] quickstart.nsys-rep[1/4] [===================81%      ] quickstart.nsys-rep[1/4] [===================82%      ] quickstart.nsys-rep[1/4] [====================83%     ] quickstart.nsys-rep[1/4] [====================84%     ] quickstart.nsys-rep[1/4] [====================85%     ] quickstart.nsys-rep[1/4] [=====================86%    ] quickstart.nsys-rep[1/4] [=====================87%    ] quickstart.nsys-rep[1/4] [=====================88%    ] quickstart.nsys-rep[1/4] [=====================89%    ] quickstart.nsys-rep[1/4] [======================90%   ] quickstart.nsys-rep[1/4] [======================91%   ] quickstart.nsys-rep[1/4] [======================92%   ] quickstart.nsys-rep[1/4] [=======================93%  ] quickstart.nsys-rep[1/4] [=======================94%  ] quickstart.nsys-rep[1/4] [=======================95%  ] quickstart.nsys-rep[1/4] [=======================96%  ] quickstart.nsys-rep[1/4] [========================97% ] quickstart.nsys-rep[1/4] [========================98% ] quickstart.nsys-rep[1/4] [========================99% ] quickstart.nsys-rep[1/4] [========================100%] quickstart.nsys-rep[1/4] [========================100%] quickstart.nsys-rep
+  [ 4.91515672e-03  4.91515672e-03  4.91515672e-03 -4.32623048e-20
+    6.57687951e-21 -1.63902301e-19]
+  [ 1.18761271e-02  1.18761271e-02  1.18761271e-02  2.03633527e-19
+   -1.47146799e-19 -2.85984903e-19]
+  [ 2.88769761e-02  2.88769761e-02  2.88769761e-02  1.53120502e-18
+    1.35281002e-18  1.28149793e-19]
+  [ 5.77965770e-02  5.77965770e-02  5.77965770e-02  3.70913152e-19
+   -1.03176384e-18 -2.22380681e-18]
+  [ 8.71404567e-02  8.71404567e-02  8.71404567e-02  6.06111583e-19
+   -9.41053327e-19  1.32601004e-19]
+  [ 1.14605478e-01  1.14605478e-01  1.14605478e-01  1.04059845e-18
+   -7.92330644e-19  1.57040308e-18]
+  [ 1.27605983e-01  1.27605983e-01  1.27605983e-01 -4.12365011e-19
+    3.27047376e-19 -4.94098659e-18]
+  [ 1.47260784e-01  1.47260784e-01  1.47260784e-01  2.82067043e-18
+   -4.08161393e-19 -4.36556779e-18]
+  [ 1.44233972e-01  1.44233972e-01  1.44233972e-01  2.46751121e-18
+    1.58640145e-18 -1.24747887e-18]
+  [ 1.52212941e-01  1.52212941e-01  1.52212941e-01  2.26051965e-18
+   -2.19715490e-18 -2.19335066e-18]
+  [ 1.47660372e-01  1.47660372e-01  1.47660372e-01  2.86663311e-18
+   -6.84275712e-19 -2.11702091e-18]
+  [ 1.46825187e-01  1.46825187e-01  1.46825187e-01  1.21834454e-18
+    2.14637506e-19  8.19130173e-19]
+  [ 1.35706734e-01  1.35706734e-01  1.35706734e-01  1.37978949e-18
+    2.20674390e-18 -3.55788158e-18]
+  [ 1.52072436e-01  1.52072436e-01  1.52072436e-01  9.76848435e-19
+    2.20944244e-18 -1.41250734e-18]
+  [ 1.42130318e-01  1.42130318e-01  1.42130318e-01  4.18019616e-18
+   -2.06388808e-19  1.94268996e-18]
+  [ 1.39484294e-01  1.39484294e-01  1.39484294e-01  1.14707687e-19
+    8.09593796e-19 -2.35074124e-18]
+  [ 1.61689002e-01  1.61689002e-01  1.61689002e-01  3.59885389e-18
+    2.11329948e-18 -1.55374226e-18]
+  [ 1.39404358e-01  1.39404358e-01  1.39404358e-01  2.37746199e-18
+   -1.90221806e-18 -1.48603450e-18]
+  [ 1.09597691e-01  1.09597691e-01  1.09597691e-01 -3.89840867e-18
+    7.74196237e-18  2.63465015e-18]
+  [ 1.33083021e-01  1.33083021e-01  1.33083021e-01  4.17584363e-18
+    5.81146869e-18  4.12125601e-19]
+  [ 1.11655947e-01  1.11655947e-01  1.11655947e-01  3.16804398e-18
+    4.75293637e-18  4.96000626e-18]
+  [ 1.30063177e-01  1.30063177e-01  1.30063177e-01  2.77677548e-18
+    2.89652771e-18  5.09740506e-19]
+  [ 1.24385385e-01  1.24385385e-01  1.24385385e-01 -1.19944024e-18
+   -1.00534612e-18 -5.64325606e-18]
+  [ 1.30520496e-01  1.30520496e-01  1.30520496e-01  4.74379151e-19
+    1.96302346e-19 -5.89964982e-18]
+  [ 1.14102476e-01  1.14102476e-01  1.14102476e-01  2.53177625e-18
+    2.22205193e-18 -3.17608084e-19]
+  [ 1.00719243e-01  1.00719243e-01  1.00719243e-01  1.95795453e-18
+    2.17140907e-19 -2.50238570e-18]
+  [ 9.72564896e-02  9.72564896e-02  9.72564896e-02  3.91591163e-18
+    1.80927149e-18 -2.22498570e-18]
+  [ 1.03696403e-01  1.03696403e-01  1.03696403e-01  1.43345281e-18
+   -4.30517491e-20 -4.37167811e-18]
+  [ 9.89172762e-02  9.89172762e-02  9.89172762e-02  2.28941869e-18
+    1.19411560e-18  2.78298225e-19]
+  [ 8.34027132e-02  8.34027132e-02  8.34027132e-02  2.90558199e-19
+    9.69735801e-19 -3.32309813e-19]
+  [ 9.51569997e-02  9.51569997e-02  9.51569997e-02  1.50528626e-18
+   -6.71964532e-19  1.99927922e-19]
+  [ 8.62719016e-02  8.62719016e-02  8.62719016e-02  1.69680879e-18
+   -9.42458151e-19 -1.77076230e-18]
+  [ 9.42064475e-02  9.42064475e-02  9.42064475e-02  1.69900188e-18
+    2.20849457e-18 -3.40474380e-21]
+  [ 9.10299520e-02  9.10299520e-02  9.10299520e-02  3.26966268e-18
+    4.35866714e-19 -1.28930725e-18]
+  [ 9.05965066e-02  9.05965066e-02  9.05965066e-02  2.34665673e-18
+    3.80732188e-19 -1.35081597e-18]
+  [ 8.53944445e-02  8.53944445e-02  8.53944445e-02  5.02779949e-19
+   -1.29737544e-18 -1.69893444e-18]
+  [ 7.83682891e-02  7.83682891e-02  7.83682891e-02  3.33418966e-18
+   -2.60689434e-19 -2.14102398e-18]
+  [ 7.95693467e-02  7.95693467e-02  7.95693467e-02  7.96222335e-19
+    8.85715763e-20 -1.31282589e-18]
+  [ 7.18880604e-02  7.18880604e-02  7.18880604e-02  1.81662899e-18
+   -1.61083318e-19 -5.18701609e-19]
+  [ 7.12555778e-02  7.12555778e-02  7.12555778e-02 -2.05547412e-19
+   -7.45084670e-20 -6.90226061e-19]
+  [ 7.95248464e-02  7.95248464e-02  7.95248464e-02  5.83486356e-19
+    4.44398403e-19 -1.25294046e-18]
+  [ 7.19600776e-02  7.19600776e-02  7.19600776e-02  1.03477738e-18
+    2.33808503e-19  2.00967487e-20]
+  [ 6.77856363e-02  6.77856363e-02  6.77856363e-02  8.65654259e-19
+    2.03480512e-19 -1.84572259e-18]
+  [ 6.65972152e-02  6.65972152e-02  6.65972152e-02 -4.45307417e-19
+   -1.90254811e-18 -4.02605900e-19]
+  [ 7.67467392e-02  7.67467392e-02  7.67467392e-02  4.64128886e-19
+   -3.76351822e-19 -3.90873955e-18]
+  [ 6.61576344e-02  6.61576344e-02  6.61576344e-02  9.18923818e-19
+    1.30284701e-19 -1.35252907e-18]
+  [ 6.35251071e-02  6.35251071e-02  6.35251071e-02  1.19281427e-18
+    4.42634079e-19 -2.90555342e-18]
+  [ 6.14847827e-02  6.14847827e-02  6.14847827e-02  1.17367837e-18
+    1.11502905e-18 -1.25363400e-19]
+  [ 6.14569355e-02  6.14569355e-02  6.14569355e-02  1.40440208e-18
+   -5.26652838e-19  1.33427771e-19]
+  [ 6.34389081e-02  6.34389081e-02  6.34389081e-02  9.62293585e-19
+   -1.73894549e-20 -1.45753541e-18]]]
+Generating '/tmp/nsys-report-2571.qdstrm'
+[1/4] [0%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [8%                          ] quickstart.nsys-rep[1/4] [7%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [0%                          ] quickstart.nsys-rep[1/4] [5%                          ] quickstart.nsys-rep[1/4] [6%                          ] quickstart.nsys-rep[1/4] [7%                          ] quickstart.nsys-rep[1/4] [8%                          ] quickstart.nsys-rep[1/4] [9%                          ] quickstart.nsys-rep[1/4] [10%                         ] quickstart.nsys-rep[1/4] [11%                         ] quickstart.nsys-rep[1/4] [12%                         ] quickstart.nsys-rep[1/4] [13%                         ] quickstart.nsys-rep[1/4] [14%                         ] quickstart.nsys-rep[1/4] [=15%                        ] quickstart.nsys-rep[1/4] [=16%                        ] quickstart.nsys-rep[1/4] [=17%                        ] quickstart.nsys-rep[1/4] [==18%                       ] quickstart.nsys-rep[1/4] [==19%                       ] quickstart.nsys-rep[1/4] [==20%                       ] quickstart.nsys-rep[1/4] [==21%                       ] quickstart.nsys-rep[1/4] [===22%                      ] quickstart.nsys-rep[1/4] [===23%                      ] quickstart.nsys-rep[1/4] [===24%                      ] quickstart.nsys-rep[1/4] [====25%                     ] quickstart.nsys-rep[1/4] [====26%                     ] quickstart.nsys-rep[1/4] [====27%                     ] quickstart.nsys-rep[1/4] [====28%                     ] quickstart.nsys-rep[1/4] [=====29%                    ] quickstart.nsys-rep[1/4] [=====30%                    ] quickstart.nsys-rep[1/4] [=====31%                    ] quickstart.nsys-rep[1/4] [=====32%                    ] quickstart.nsys-rep[1/4] [======33%                   ] quickstart.nsys-rep[1/4] [======34%                   ] quickstart.nsys-rep[1/4] [======35%                   ] quickstart.nsys-rep[1/4] [=======36%                  ] quickstart.nsys-rep[1/4] [=======37%                  ] quickstart.nsys-rep[1/4] [=======38%                  ] quickstart.nsys-rep[1/4] [=======39%                  ] quickstart.nsys-rep[1/4] [========40%                 ] quickstart.nsys-rep[1/4] [========41%                 ] quickstart.nsys-rep[1/4] [========42%                 ] quickstart.nsys-rep[1/4] [=========43%                ] quickstart.nsys-rep[1/4] [=========44%                ] quickstart.nsys-rep[1/4] [=========46%                ] quickstart.nsys-rep[1/4] [==========47%               ] quickstart.nsys-rep[1/4] [==========48%               ] quickstart.nsys-rep[1/4] [==========49%               ] quickstart.nsys-rep[1/4] [===========50%              ] quickstart.nsys-rep[1/4] [===========51%              ] quickstart.nsys-rep[1/4] [===========52%              ] quickstart.nsys-rep[1/4] [===========53%              ] quickstart.nsys-rep[1/4] [============54%             ] quickstart.nsys-rep[1/4] [============55%             ] quickstart.nsys-rep[1/4] [============56%             ] quickstart.nsys-rep[1/4] [============57%             ] quickstart.nsys-rep[1/4] [=============58%            ] quickstart.nsys-rep[1/4] [=============59%            ] quickstart.nsys-rep[1/4] [=============60%            ] quickstart.nsys-rep[1/4] [==============61%           ] quickstart.nsys-rep[1/4] [==============62%           ] quickstart.nsys-rep[1/4] [==============63%           ] quickstart.nsys-rep[1/4] [==============64%           ] quickstart.nsys-rep[1/4] [===============65%          ] quickstart.nsys-rep[1/4] [===============66%          ] quickstart.nsys-rep[1/4] [===============67%          ] quickstart.nsys-rep[1/4] [================68%         ] quickstart.nsys-rep[1/4] [================69%         ] quickstart.nsys-rep[1/4] [================70%         ] quickstart.nsys-rep[1/4] [================71%         ] quickstart.nsys-rep[1/4] [=================72%        ] quickstart.nsys-rep[1/4] [=================73%        ] quickstart.nsys-rep[1/4] [=================74%        ] quickstart.nsys-rep[1/4] [==================75%       ] quickstart.nsys-rep[1/4] [==================76%       ] quickstart.nsys-rep[1/4] [==================77%       ] quickstart.nsys-rep[1/4] [==================78%       ] quickstart.nsys-rep[1/4] [===================79%      ] quickstart.nsys-rep[1/4] [===================80%      ] quickstart.nsys-rep[1/4] [===================81%      ] quickstart.nsys-rep[1/4] [===================82%      ] quickstart.nsys-rep[1/4] [====================83%     ] quickstart.nsys-rep[1/4] [====================84%     ] quickstart.nsys-rep[1/4] [====================85%     ] quickstart.nsys-rep[1/4] [=====================86%    ] quickstart.nsys-rep[1/4] [=====================87%    ] quickstart.nsys-rep[1/4] [=====================88%    ] quickstart.nsys-rep[1/4] [=====================89%    ] quickstart.nsys-rep[1/4] [======================90%   ] quickstart.nsys-rep[1/4] [======================91%   ] quickstart.nsys-rep[1/4] [======================92%   ] quickstart.nsys-rep[1/4] [=======================93%  ] quickstart.nsys-rep[1/4] [=======================94%  ] quickstart.nsys-rep[1/4] [=======================95%  ] quickstart.nsys-rep[1/4] [=======================96%  ] quickstart.nsys-rep[1/4] [========================97% ] quickstart.nsys-rep[1/4] [========================98% ] quickstart.nsys-rep[1/4] [========================99% ] quickstart.nsys-rep[1/4] [========================100%] quickstart.nsys-rep[1/4] [========================100%] quickstart.nsys-rep
 [2/4] [0%                          ] quickstart.sqlite[2/4] [1%                          ] quickstart.sqlite[2/4] [2%                          ] quickstart.sqlite[2/4] [3%                          ] quickstart.sqlite[2/4] [4%                          ] quickstart.sqlite[2/4] [5%                          ] quickstart.sqlite[2/4] [6%                          ] quickstart.sqlite[2/4] [7%                          ] quickstart.sqlite[2/4] [8%                          ] quickstart.sqlite[2/4] [9%                          ] quickstart.sqlite[2/4] [10%                         ] quickstart.sqlite[2/4] [11%                         ] quickstart.sqlite[2/4] [12%                         ] quickstart.sqlite[2/4] [13%                         ] quickstart.sqlite[2/4] [14%                         ] quickstart.sqlite[2/4] [=15%                        ] quickstart.sqlite[2/4] [=16%                        ] quickstart.sqlite[2/4] [=17%                        ] quickstart.sqlite[2/4] [==18%                       ] quickstart.sqlite[2/4] [==19%                       ] quickstart.sqlite[2/4] [==20%                       ] quickstart.sqlite[2/4] [==21%                       ] quickstart.sqlite[2/4] [===22%                      ] quickstart.sqlite[2/4] [===23%                      ] quickstart.sqlite[2/4] [===24%                      ] quickstart.sqlite[2/4] [====25%                     ] quickstart.sqlite[2/4] [====26%                     ] quickstart.sqlite[2/4] [====27%                     ] quickstart.sqlite[2/4] [====28%                     ] quickstart.sqlite[2/4] [=====29%                    ] quickstart.sqlite[2/4] [=====30%                    ] quickstart.sqlite[2/4] [=====31%                    ] quickstart.sqlite[2/4] [=====32%                    ] quickstart.sqlite[2/4] [======33%                   ] quickstart.sqlite[2/4] [======34%                   ] quickstart.sqlite[2/4] [======35%                   ] quickstart.sqlite[2/4] [=======36%                  ] quickstart.sqlite[2/4] [=======37%                  ] quickstart.sqlite[2/4] [=======38%                  ] quickstart.sqlite[2/4] [=======39%                  ] quickstart.sqlite[2/4] [========40%                 ] quickstart.sqlite[2/4] [========41%                 ] quickstart.sqlite[2/4] [========42%                 ] quickstart.sqlite[2/4] [=========43%                ] quickstart.sqlite[2/4] [=========44%                ] quickstart.sqlite[2/4] [=========45%                ] quickstart.sqlite[2/4] [=========46%                ] quickstart.sqlite[2/4] [==========47%               ] quickstart.sqlite[2/4] [==========48%               ] quickstart.sqlite[2/4] [==========49%               ] quickstart.sqlite[2/4] [===========50%              ] quickstart.sqlite[2/4] [===========51%              ] quickstart.sqlite[2/4] [===========52%              ] quickstart.sqlite[2/4] [===========53%              ] quickstart.sqlite[2/4] [============54%             ] quickstart.sqlite[2/4] [============55%             ] quickstart.sqlite[2/4] [============56%             ] quickstart.sqlite[2/4] [============57%             ] quickstart.sqlite[2/4] [=============58%            ] quickstart.sqlite[2/4] [=============59%            ] quickstart.sqlite[2/4] [=============60%            ] quickstart.sqlite[2/4] [==============61%           ] quickstart.sqlite[2/4] [==============62%           ] quickstart.sqlite[2/4] [==============63%           ] quickstart.sqlite[2/4] [==============64%           ] quickstart.sqlite[2/4] [===============65%          ] quickstart.sqlite[2/4] [===============66%          ] quickstart.sqlite[2/4] [===============67%          ] quickstart.sqlite[2/4] [================68%         ] quickstart.sqlite[2/4] [================69%         ] quickstart.sqlite[2/4] [================70%         ] quickstart.sqlite[2/4] [================71%         ] quickstart.sqlite[2/4] [=================72%        ] quickstart.sqlite[2/4] [=================73%        ] quickstart.sqlite[2/4] [=================74%        ] quickstart.sqlite[2/4] [==================75%       ] quickstart.sqlite[2/4] [==================76%       ] quickstart.sqlite[2/4] [==================77%       ] quickstart.sqlite[2/4] [==================78%       ] quickstart.sqlite[2/4] [===================79%      ] quickstart.sqlite[2/4] [===================80%      ] quickstart.sqlite[2/4] [===================81%      ] quickstart.sqlite[2/4] [===================82%      ] quickstart.sqlite[2/4] [====================83%     ] quickstart.sqlite[2/4] [====================84%     ] quickstart.sqlite[2/4] [====================85%     ] quickstart.sqlite[2/4] [=====================86%    ] quickstart.sqlite[2/4] [=====================87%    ] quickstart.sqlite[2/4] [=====================88%    ] quickstart.sqlite[2/4] [=====================89%    ] quickstart.sqlite[2/4] [======================90%   ] quickstart.sqlite[2/4] [======================91%   ] quickstart.sqlite[2/4] [======================92%   ] quickstart.sqlite[2/4] [=======================93%  ] quickstart.sqlite[2/4] [=======================94%  ] quickstart.sqlite[2/4] [=======================95%  ] quickstart.sqlite[2/4] [=======================96%  ] quickstart.sqlite[2/4] [========================97% ] quickstart.sqlite[2/4] [========================98% ] quickstart.sqlite[2/4] [========================99% ] quickstart.sqlite[2/4] [========================100%] quickstart.sqlite[2/4] [========================100%] quickstart.sqlite
 [3/4] Executing 'nvtxsum' stats report
 
@@ -1874,36 +1874,37 @@ NVTX Range Statistics:
 
  Time (%)  Total Time (ns)  Instances      Avg (ns)           Med (ns)          Min (ns)         Max (ns)        StdDev (ns)     Style                  Range                
  --------  ---------------  ---------  -----------------  -----------------  ---------------  ---------------  ---------------  -------  ------------------------------------
-     32.7  116,764,305,536          1  116,764,305,536.0  116,764,305,536.0  116,764,305,536  116,764,305,536              0.0  PushPop  get_thermal_conductivity_LBTE       
-     16.6   59,094,364,939          1   59,094,364,939.0   59,094,364,939.0   59,094,364,939   59,094,364,939              0.0  PushPop  set_kappa_at_sigmas                 
-     15.4   54,994,367,553          1   54,994,367,553.0   54,994,367,553.0   54,994,367,553   54,994,367,553              0.0  PushPop  _temperatures                       
-     10.9   39,074,664,946         50      781,493,298.9      772,051,207.5      691,190,236    1,033,039,200     66,376,260.0  PushPop  diagonalize_collision_matrix        
-     10.9   39,066,962,468         50      781,339,249.4      771,891,765.0      691,058,961    1,032,832,986     66,368,724.2  PushPop  phono3c.diagonalize_collision_matrix
-      4.3   15,325,003,375        100      153,250,033.8      152,204,247.5      141,089,845      172,039,246      9,045,043.4  PushPop  _set_mode_kappa                     
-      4.3   15,323,521,022        100      153,235,210.2      152,190,627.5      141,074,576      172,024,487      9,043,905.7  PushPop  v_gp, f_gp: outside ij loop         
-      2.2    7,816,310,437         50      156,326,208.7      155,221,817.5      144,030,226      175,624,829      8,800,579.1  PushPop  _set_kappa_RTA_ir_colmat            
-      1.1    4,099,925,192          1    4,099,925,192.0    4,099,925,192.0    4,099,925,192    4,099,925,192              0.0  PushPop  _prepare_collision_matrix           
-      0.8    2,688,784,501          2    1,344,392,250.5    1,344,392,250.5      360,242,291    2,328,542,210  1,391,798,220.1  PushPop  _ir_grid_point: outside loop        
-      0.2      797,354,328          1      797,354,328.0      797,354,328.0      797,354,328      797,354,328              0.0  PushPop  _multiply_weights_to_collisions     
-      0.1      446,890,675          1      446,890,675.0      446,890,675.0      446,890,675      446,890,675              0.0  PushPop  _combine_collisions                 
-      0.1      348,544,833        120        2,904,540.3        2,883,875.5        2,602,390        6,485,329        387,913.8  PushPop  deg_sets: outside loop              
-      0.1      277,792,579         50        5,555,851.6        5,754,877.0        3,269,314        8,498,671      1,396,918.0  PushPop  _get_Y                              
-      0.0      166,329,362          1      166,329,362.0      166,329,362.0      166,329,362      166,329,362              0.0  PushPop  phono3c.symmetrize_collision_matrix 
-      0.0      122,784,109        100        1,227,841.1        1,249,539.0        1,051,700        1,528,218        116,379.4  PushPop  _get_X                              
-      0.0       98,698,546         50        1,973,970.9        1,943,939.0        1,772,524        2,218,295        141,158.0  PushPop  _ir_grid_points: outside loop       
-      0.0       87,233,685         50        1,744,673.7        1,740,118.5          599,177        1,970,873        250,918.6  PushPop  _set_mean_free_path                 
-      0.0       86,316,357         50        1,726,327.1        1,721,985.0          580,172        1,951,267        250,839.1  PushPop  _f_vectors: outside loop            
-      0.0       79,888,580      6,000           13,314.8           13,225.0            9,247          214,389          5,469.6  PushPop  frequencies: outside loop           
-      0.0       74,969,316      6,000           12,494.9           12,724.0            2,204           85,670          3,813.5  PushPop  f_gp: outside loop                  
-      0.0       66,415,971          5       13,283,194.2       13,875,905.0       10,630,014       14,195,100      1,495,541.5  PushPop  get_site_symmetry                   
-      0.0       66,351,672          5       13,270,334.4       13,868,491.0       10,614,245       14,177,017      1,496,667.1  PushPop  _get_site_symmetry                  
-      0.0       26,050,889          1       26,050,889.0       26,050,889.0       26,050,889       26,050,889              0.0  PushPop  _get_weights                        
-      0.0       13,986,021          1       13,986,021.0       13,986,021.0       13,986,021       13,986,021              0.0  PushPop  get_least_displacements             
-      0.0       11,562,060         28          412,930.7          317,727.0          254,254        2,411,095        411,800.3  PushPop  __init__                            
-      0.0        1,203,535        720            1,671.6            1,212.0              571          192,158          7,285.4  PushPop  freq: outside loop                  
-      0.0          996,806        100            9,968.1            9,738.0            6,362           18,194          2,352.2  PushPop  phono3c.default_colmat_solver       
-      0.0           35,016          2           17,508.0           17,508.0           14,658           20,358          4,030.5  PushPop  _get_filename_suffix                
-      0.0           13,445          1           13,445.0           13,445.0           13,445           13,445              0.0  PushPop  _sigmas                             
+     23.7  133,723,639,990          1  133,723,639,990.0  133,723,639,990.0  133,723,639,990  133,723,639,990              0.0  PushPop  get_thermal_conductivity_LBTE       
+     13.1   74,214,343,171          1   74,214,343,171.0   74,214,343,171.0   74,214,343,171   74,214,343,171              0.0  PushPop  set_kappa_at_sigmas                 
+     12.3   69,439,276,398          1   69,439,276,398.0   69,439,276,398.0   69,439,276,398   69,439,276,398              0.0  PushPop  _sigmas                             
+     12.3   69,439,253,376          1   69,439,253,376.0   69,439,253,376.0   69,439,253,376   69,439,253,376              0.0  PushPop  _temperatures                       
+     10.4   58,679,951,244          1   58,679,951,244.0   58,679,951,244.0   58,679,951,244   58,679,951,244              0.0  PushPop  collision matrix: sequential        
+      8.4   47,718,214,630         50      954,364,292.6      960,656,198.5      790,440,873    1,115,046,826     68,226,815.3  PushPop  diagonalize_collision_matrix        
+      8.4   47,711,261,095         50      954,225,221.9      960,528,971.0      790,326,851    1,114,898,670     68,217,445.1  PushPop  phono3c.diagonalize_collision_matrix
+      3.7   21,080,607,404        100      210,806,074.0      177,904,157.0      165,711,707      351,595,168     55,179,010.2  PushPop  _set_mode_kappa                     
+      3.7   21,078,587,699        100      210,785,877.0      177,884,560.0      165,696,078      351,510,300     55,173,381.5  PushPop  v_gp, f_gp: outside ij loop         
+      1.9   10,876,118,001         50      217,522,360.0      184,835,365.5      170,497,471      358,331,649     59,702,756.1  PushPop  _set_kappa_RTA_ir_colmat            
+      0.8    4,775,027,970          1    4,775,027,970.0    4,775,027,970.0    4,775,027,970    4,775,027,970              0.0  PushPop  _prepare_collision_matrix           
+      0.5    2,808,111,580          2    1,404,055,790.0    1,404,055,790.0      397,429,381    2,410,682,199  1,423,584,719.9  PushPop  _ir_grid_point: outside loop        
+      0.2      962,325,491          1      962,325,491.0      962,325,491.0      962,325,491      962,325,491              0.0  PushPop  _multiply_weights_to_collisions     
+      0.1      819,359,936          1      819,359,936.0      819,359,936.0      819,359,936      819,359,936              0.0  PushPop  _combine_collisions                 
+      0.1      385,098,498        120        3,209,154.2        3,153,630.5        3,062,901        5,539,419        242,237.5  PushPop  deg_sets: outside loop              
+      0.0      219,637,936         50        4,392,758.7        3,886,686.5        2,624,303        9,348,792      1,508,665.5  PushPop  _get_Y                              
+      0.0      184,840,265          1      184,840,265.0      184,840,265.0      184,840,265      184,840,265              0.0  PushPop  phono3c.symmetrize_collision_matrix 
+      0.0      164,923,039        100        1,649,230.4        1,356,414.5        1,257,214        3,303,119        518,127.2  PushPop  _get_X                              
+      0.0      129,847,850         50        2,596,957.0        2,104,318.0        2,037,559        4,925,374        728,660.0  PushPop  _ir_grid_points: outside loop       
+      0.0      116,795,879         50        2,335,917.6        1,878,973.5          830,558        4,384,255        806,865.1  PushPop  _set_mean_free_path                 
+      0.0      116,056,291         50        2,321,125.8        1,866,235.5          816,783        4,365,019        805,417.5  PushPop  _f_vectors: outside loop            
+      0.0      106,334,477      6,000           17,722.4           15,659.5           10,900          209,220          7,788.4  PushPop  frequencies: outside loop           
+      0.0      101,696,711      6,000           16,949.5           14,968.0            2,565          245,909          8,624.0  PushPop  f_gp: outside loop                  
+      0.0       75,177,577          5       15,035,515.4       14,574,175.0       10,539,362       19,735,820      3,366,729.2  PushPop  get_site_symmetry                   
+      0.0       41,296,282          1       41,296,282.0       41,296,282.0       41,296,282       41,296,282              0.0  PushPop  _get_weights                        
+      0.0       39,898,074          3       13,299,358.0        1,141,108.0          321,249       38,435,717     21,772,584.8  PushPop  run_phonon_solver_c                 
+      0.0       20,125,396          1       20,125,396.0       20,125,396.0       20,125,396       20,125,396              0.0  PushPop  get_least_displacements             
+      0.0       10,175,778         28          363,420.6          328,002.0          313,965          939,011        121,340.3  PushPop  __init__                            
+      0.0        1,026,500        720            1,425.7            1,222.0              702           22,181          1,598.6  PushPop  freq: outside loop                  
+      0.0          757,194        100            7,571.9            7,228.5            5,320           19,206          1,771.5  PushPop  phono3c.default_colmat_solver       
+      0.0           27,732          2           13,866.0           13,866.0           12,223           15,509          2,323.6  PushPop  _get_filename_suffix                
 
 [4/4] Executing 'osrtsum' stats report
 
@@ -1911,29 +1912,29 @@ Operating System Runtime API Statistics:
 
  Time (%)  Total Time (ns)  Num Calls    Avg (ns)       Med (ns)      Min (ns)      Max (ns)       StdDev (ns)           Name        
  --------  ---------------  ---------  -------------  -------------  ----------  --------------  ---------------  -------------------
-     50.6  190,842,899,526        402  474,733,580.9  223,633,969.5  60,380,922  66,390,211,266  3,312,455,440.6  pthread_cond_wait  
-     49.3  185,817,704,245      7,498   24,782,302.5        1,743.0       1,001  55,181,200,935  1,106,506,320.7  futex              
-      0.0       58,177,506      4,584       12,691.4        7,724.5       1,001       3,906,010        119,231.9  pthread_mutex_lock 
-      0.0       24,147,885        863       27,981.3        6,372.0       1,833       7,038,610        264,040.8  read               
-      0.0       16,106,285        393       40,982.9       35,716.0       5,641       2,050,121        104,234.1  open64             
-      0.0       10,088,958      2,782        3,626.5        2,605.0       1,001         157,013          6,072.4  pthread_cond_signal
-      0.0        8,852,826      1,440        6,147.8        5,230.0       3,677         563,851         14,843.1  backtrace          
-      0.0        4,582,422        229       20,010.6        7,855.0       1,383         690,137         67,100.0  pwrite             
-      0.0        3,618,910        446        8,114.1        4,063.0       1,002         219,109         19,363.2  write              
-      0.0        1,583,872          4      395,968.0      404,138.5     125,023         650,572        224,024.6  open               
-      0.0        1,089,390          3      363,130.0      356,374.0     296,423         436,593         70,328.8  pthread_create     
-      0.0          666,534          2      333,267.0      333,267.0     176,089         490,445        222,283.3  pthread_join       
-      0.0          430,251          8       53,781.4       53,630.0      24,255          83,646         17,836.5  munmap             
-      0.0          392,655         31       12,666.3       11,692.0       5,340          47,458          7,554.7  mmap64             
-      0.0          237,713          2      118,856.5      118,856.5     118,801         118,912             78.5  flock              
-      0.0          198,732          7       28,390.3       25,638.0      12,994          48,270         10,962.5  fopen64            
-      0.0          168,092          7       24,013.1       11,751.0       8,335          63,298         23,683.8  mmap               
-      0.0           28,693          1       28,693.0       28,693.0      28,693          28,693              0.0  fread              
-      0.0           24,747          3        8,249.0        4,539.0       3,797          16,411          7,078.2  fgets              
-      0.0           13,105          2        6,552.5        6,552.5       6,312           6,793            340.1  fclose             
-      0.0            3,998          2        1,999.0        1,999.0       1,944           2,054             77.8  sigaction          
-      0.0            3,266          3        1,088.7        1,042.0       1,032           1,192             89.6  fcntl              
-      0.0            1,202          1        1,202.0        1,202.0       1,202           1,202              0.0  fflush             
+     51.7  231,889,683,113      9,674   23,970,403.5        1,793.0       1,001  69,721,135,366  1,230,390,834.2  futex              
+     48.2  216,218,953,283        402  537,858,092.7  306,270,460.0  75,536,466  69,060,028,770  3,447,546,133.4  pthread_cond_wait  
+      0.0       45,160,799      4,810        9,388.9       11,080.5       1,001       1,113,927         17,507.9  pthread_mutex_lock 
+      0.0       24,366,256        397       61,376.0       37,390.0       5,200         478,663         66,259.7  open64             
+      0.0       14,481,570        867       16,703.1        7,004.0       1,583         563,300         46,662.9  read               
+      0.0       11,947,733      2,591        4,611.2        3,717.0       1,002         183,412          6,189.5  pthread_cond_signal
+      0.0        9,564,469      1,440        6,642.0        5,620.5       4,348         184,144          5,547.4  backtrace          
+      0.0        5,769,170        229       25,192.9       12,934.0       1,883         656,955         75,999.5  pwrite             
+      0.0        3,556,947        434        8,195.7        4,789.0       1,002         518,967         34,152.1  write              
+      0.0        1,263,586          4      315,896.5      294,323.5     155,190         519,749        150,990.6  open               
+      0.0        1,136,218          3      378,739.3      400,306.0     329,324         406,588         42,910.0  pthread_create     
+      0.0        1,051,313        207        5,078.8        3,226.0       2,554          28,824          3,704.9  mmap64             
+      0.0          822,840        184        4,472.0        1,528.0       1,192          93,785         11,848.6  munmap             
+      0.0          666,633          2      333,316.5      333,316.5      36,217         630,416        420,162.1  pthread_join       
+      0.0          215,431          2      107,715.5      107,715.5     101,108         114,323          9,344.4  flock              
+      0.0          196,276          7       28,039.4       28,894.0      12,413          39,484          9,728.3  fopen64            
+      0.0          115,593          7       16,513.3       11,611.0       8,616          35,185         10,456.9  mmap               
+      0.0           23,884          1       23,884.0       23,884.0      23,884          23,884              0.0  fread              
+      0.0           20,969          3        6,989.7        3,697.0       3,015          14,257          6,302.9  fgets              
+      0.0           11,813          2        5,906.5        5,906.5       5,471           6,342            615.9  fclose             
+      0.0            3,556          2        1,778.0        1,778.0       1,733           1,823             63.6  sigaction          
+      0.0            1,232          1        1,232.0        1,232.0       1,232           1,232              0.0  fflush             
+      0.0            1,062          1        1,062.0        1,062.0       1,062           1,062              0.0  fcntl              
 
 Generated:
     /pscratch/sd/c/cyrusyc/phono3py/example/Si-PBEsol/quickstart.nsys-rep

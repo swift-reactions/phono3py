@@ -76,7 +76,6 @@ from phono3py.phonon3.interaction import Interaction
 
 import nvtx
 
-
 class ConductivityRTAWriter:
     """Collection of result writers."""
 
@@ -451,40 +450,42 @@ class ConductivityLBTEWriter:
                         filename=filename,
                     )
             else:
-                for j, sigma in enumerate(sigmas):
-                    for k, bi in enumerate(interaction.band_indices):
-                        if gamma_isotope is not None:
-                            gamma_isotope_at_sigma = gamma_isotope[j, igp, k]
-                        else:
-                            gamma_isotope_at_sigma = None
-                        write_collision_to_hdf5(
-                            temperatures,
-                            mesh,
-                            gamma=gamma[j, :, igp, k],
-                            gamma_isotope=gamma_isotope_at_sigma,
-                            collision_matrix=collision_matrix[j, :, igp, k],
-                            grid_point=gp,
-                            band_index=bi,
-                            sigma=sigma,
-                            sigma_cutoff=sigma_cutoff,
-                            filename=filename,
-                        )
+                with nvtx.annotate('sigmas, bands: outside loop', color='purple'):
+                    for j, sigma in enumerate(sigmas):
+                        for k, bi in enumerate(interaction.band_indices):
+                            if gamma_isotope is not None:
+                                gamma_isotope_at_sigma = gamma_isotope[j, igp, k]
+                            else:
+                                gamma_isotope_at_sigma = None
+                            write_collision_to_hdf5(
+                                temperatures,
+                                mesh,
+                                gamma=gamma[j, :, igp, k],
+                                gamma_isotope=gamma_isotope_at_sigma,
+                                collision_matrix=collision_matrix[j, :, igp, k],
+                                grid_point=gp,
+                                band_index=bi,
+                                sigma=sigma,
+                                sigma_cutoff=sigma_cutoff,
+                                filename=filename,
+                            )
         else:
-            for j, sigma in enumerate(sigmas):
-                if gamma_isotope is not None:
-                    gamma_isotope_at_sigma = gamma_isotope[j]
-                else:
-                    gamma_isotope_at_sigma = None
-                write_collision_to_hdf5(
-                    temperatures,
-                    mesh,
-                    gamma=gamma[j],
-                    gamma_isotope=gamma_isotope_at_sigma,
-                    collision_matrix=collision_matrix[j],
-                    sigma=sigma,
-                    sigma_cutoff=sigma_cutoff,
-                    filename=filename,
-                )
+            with nvtx.annotate('sigmas: outside loop', color='purple'):
+                for j, sigma in enumerate(sigmas):
+                    if gamma_isotope is not None:
+                        gamma_isotope_at_sigma = gamma_isotope[j]
+                    else:
+                        gamma_isotope_at_sigma = None
+                    write_collision_to_hdf5(
+                        temperatures,
+                        mesh,
+                        gamma=gamma[j],
+                        gamma_isotope=gamma_isotope_at_sigma,
+                        collision_matrix=collision_matrix[j],
+                        sigma=sigma,
+                        sigma_cutoff=sigma_cutoff,
+                        filename=filename,
+                    )
 
     @staticmethod
     def write_kappa(

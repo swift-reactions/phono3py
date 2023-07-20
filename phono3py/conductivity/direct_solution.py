@@ -340,6 +340,7 @@ class ConductivityLBTEBase(ConductivityBase):
             order="C",
         )
 
+    @nvtx.annotate(color='red')
     def _run_at_grid_point(self):
         """Calculate properties at a grid point."""
         i_gp = self._grid_point_count
@@ -1375,8 +1376,6 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                 with nvtx.annotate('_temperatures', color='red'):
                     # TODO: this temperature for loop seems to be paralelizable
                     for k, t in enumerate(self._temperatures):
-                        if k%size!=rank:
-                            continue
                         if t > 0:
                             self._set_kappa_RTA(j, k, weights)
 
@@ -1822,24 +1821,25 @@ def get_thermal_conductivity_LBTE(
                 text = (" %.1f " * len(temps_read)) % tuple(temps_read)
             print("Temperature: " + text)
 
-    # This computes pieces of collision matrix sequentially.
-    for i in lbte:
-        if write_pp:
-            write_phph(
-                lbte, interaction, i, filename=output_filename, compression=compression
-            )
+    with nvtx.annotate('collision matrix: sequential', color='red'):
+        # This computes pieces of collision matrix sequentially.
+        for i in lbte:
+            if write_pp:
+                write_phph(
+                    lbte, interaction, i, filename=output_filename, compression=compression
+                )
 
-        if write_collision:
-            ConductivityLBTEWriter.write_collision(
-                lbte,
-                interaction,
-                i=i,
-                is_reducible_collision_matrix=is_reducible_collision_matrix,
-                is_one_gp_colmat=(grid_points is not None),
-                filename=output_filename,
-            )
+            if write_collision:
+                ConductivityLBTEWriter.write_collision(
+                    lbte,
+                    interaction,
+                    i=i,
+                    is_reducible_collision_matrix=is_reducible_collision_matrix,
+                    is_one_gp_colmat=(grid_points is not None),
+                    filename=output_filename,
+                )
 
-        lbte.delete_gp_collision_and_pp()
+            lbte.delete_gp_collision_and_pp()
 
     # Write full collision matrix
     if write_LBTE_solution:
