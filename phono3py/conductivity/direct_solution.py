@@ -339,6 +339,7 @@ class ConductivityLBTEBase(ConductivityBase):
             order="C",
         )
 
+    @nvtx.annotate(color='red')
     def _run_at_grid_point(self):
         """Calculate properties at a grid point."""
         i_gp = self._grid_point_count
@@ -1367,38 +1368,38 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                         text += "with tetrahedron method -----------"
                     print(text)
                     sys.stdout.flush()
-        with nvtx.annotate('_temperatures', color='red'):
-            # TODO: this temperature for loop seems to be paralelizable
-            for k, t in enumerate(self._temperatures):
-                if t > 0:
-                    self._set_kappa_RTA(j, k, weights)
+            with nvtx.annotate('_temperatures', color='red'):
+                # TODO: this temperature for loop seems to be paralelizable
+                for k, t in enumerate(self._temperatures):
+                    if t > 0:
+                        self._set_kappa_RTA(j, k, weights)
 
-                    w = diagonalize_collision_matrix(
-                        self._collision_matrix,
-                        i_sigma=j,
-                        i_temp=k,
-                        pinv_solver=self._pinv_solver,
-                        log_level=self._log_level,
-                    )
-                    self._collision_eigenvalues[j, k] = w
+                        w = diagonalize_collision_matrix(
+                            self._collision_matrix,
+                            i_sigma=j,
+                            i_temp=k,
+                            pinv_solver=self._pinv_solver,
+                            log_level=self._log_level,
+                        )
+                        self._collision_eigenvalues[j, k] = w
 
-                    self._set_kappa(j, k, weights)
+                        self._set_kappa(j, k, weights)
 
-                    if self._log_level:
-                        print(
-                            ("#%6s       " + " %-10s" * 6)
-                            % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
-                        )
-                        print(
-                            ("%7.1f " + " %10.3f" * 6)
-                            % ((t,) + tuple(self._kappa[j, k]))
-                        )
-                        print(
-                            (" %6s " + " %10.3f" * 6)
-                            % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
-                        )
-                        print("-" * 76)
-                        sys.stdout.flush()
+                        if self._log_level:
+                            print(
+                                ("#%6s       " + " %-10s" * 6)
+                                % ("T(K)", "xx", "yy", "zz", "yz", "xz", "xy")
+                            )
+                            print(
+                                ("%7.1f " + " %10.3f" * 6)
+                                % ((t,) + tuple(self._kappa[j, k]))
+                            )
+                            print(
+                                (" %6s " + " %10.3f" * 6)
+                                % (("(RTA)",) + tuple(self._kappa_RTA[j, k]))
+                            )
+                            print("-" * 76)
+                            sys.stdout.flush()
 
         if self._log_level:
             print("")
@@ -1802,24 +1803,25 @@ def get_thermal_conductivity_LBTE(
                 text = (" %.1f " * len(temps_read)) % tuple(temps_read)
             print("Temperature: " + text)
 
-    # This computes pieces of collision matrix sequentially.
-    for i in lbte:
-        if write_pp:
-            write_phph(
-                lbte, interaction, i, filename=output_filename, compression=compression
-            )
+    with nvtx.annotate('collision matrix: sequential', color='red'):
+        # This computes pieces of collision matrix sequentially.
+        for i in lbte:
+            if write_pp:
+                write_phph(
+                    lbte, interaction, i, filename=output_filename, compression=compression
+                )
 
-        if write_collision:
-            ConductivityLBTEWriter.write_collision(
-                lbte,
-                interaction,
-                i=i,
-                is_reducible_collision_matrix=is_reducible_collision_matrix,
-                is_one_gp_colmat=(grid_points is not None),
-                filename=output_filename,
-            )
+            if write_collision:
+                ConductivityLBTEWriter.write_collision(
+                    lbte,
+                    interaction,
+                    i=i,
+                    is_reducible_collision_matrix=is_reducible_collision_matrix,
+                    is_one_gp_colmat=(grid_points is not None),
+                    filename=output_filename,
+                )
 
-        lbte.delete_gp_collision_and_pp()
+            lbte.delete_gp_collision_and_pp()
 
     # Write full collision matrix
     if write_LBTE_solution:
