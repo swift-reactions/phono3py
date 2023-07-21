@@ -979,7 +979,6 @@ def write_pp(
         compression=compression,
     )
 
-@nvtx.annotate(color='green')
 def set_collision_from_file(
     lbte: "ConductivityLBTEBase",
     indices="all",
