@@ -11,10 +11,10 @@ from phono3py import Phono3py
 def run_thermal_conductivity(is_root=False):
     """Run RTA thermal conductivity calculation from input files."""
     ph3 = phono3py.load("phono3py_disp.yaml", log_level=2*is_root)
-    ph3.mesh_numbers = [11, 11, 11]
+    ph3.mesh_numbers = [15, 15, 15]
     ph3.init_phph_interaction()
     ph3.run_thermal_conductivity(
-        temperatures=range(0, 101, 10), 
+        temperatures=range(0, 501, 10), 
         write_kappa=is_root,
         pinv_solver=2,
         is_LBTE=True)

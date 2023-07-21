@@ -1363,6 +1363,10 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
         comm = MPI.COMM_WORLD
         rank = comm.Get_rank()
         size = comm.Get_size()
+
+        with nvtx.annotate('_barrier', color='green'):
+            comm.Barrier()
+
         with nvtx.annotate('_sigmas', color='red'):
             for j, sigma in enumerate(self._sigmas):
                 if self._log_level:
@@ -1375,7 +1379,10 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                     sys.stdout.flush()
                 with nvtx.annotate('_temperatures', color='red'):
                     # TODO: this temperature for loop seems to be paralelizable
+                    task_per_node = len(self._temperatures) / size
                     for k, t in enumerate(self._temperatures):
+                        if k//task_per_node!=rank:
+                            continue
                         if t > 0:
                             self._set_kappa_RTA(j, k, weights)
 
@@ -1406,11 +1413,12 @@ class ConductivityLBTE(ConductivityMixIn, ConductivityLBTEBase):
                                 print("-" * 76)
                                 sys.stdout.flush()
 
-        mode_kappa_RTA=comm.reduce(self.mode_kappa_RTA, root=0, op=MPI.SUM)
-        kappa_RTA=comm.reduce(self.kappa_RTA, root=0, op=MPI.SUM)
-        _collision_eigenvalues=comm.reduce(self._collision_eigenvalues, root=0, op=MPI.SUM)
-        mode_kappa=comm.reduce(self.mode_kappa, root=0, op=MPI.SUM)
-        kappa=comm.reduce(self.kappa, root=0, op=MPI.SUM)
+        with nvtx.annotate('_mpi_reduce', color='purple'):
+            mode_kappa_RTA=comm.reduce(self.mode_kappa_RTA, root=0, op=MPI.SUM)
+            kappa_RTA=comm.reduce(self.kappa_RTA, root=0, op=MPI.SUM)
+            _collision_eigenvalues=comm.reduce(self._collision_eigenvalues, root=0, op=MPI.SUM)
+            mode_kappa=comm.reduce(self.mode_kappa, root=0, op=MPI.SUM)
+            kappa=comm.reduce(self.kappa, root=0, op=MPI.SUM)
 
         if rank==0:
             self._mode_kappa_RTA=mode_kappa_RTA
@@ -1821,9 +1829,18 @@ def get_thermal_conductivity_LBTE(
                 text = (" %.1f " * len(temps_read)) % tuple(temps_read)
             print("Temperature: " + text)
 
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    size = comm.Get_size()
+
     with nvtx.annotate('collision matrix: sequential', color='red'):
         # This computes pieces of collision matrix sequentially.
-        for i in lbte:
+        task_per_node = len(lbte._grid_points) / size
+        for it in range(len((lbte._grid_points))):
+            if it//task_per_node!=rank:
+                continue
+
+            i = next(lbte)
             if write_pp:
                 write_phph(
                     lbte, interaction, i, filename=output_filename, compression=compression
