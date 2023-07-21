@@ -1829,18 +1829,19 @@ def get_thermal_conductivity_LBTE(
                 text = (" %.1f " * len(temps_read)) % tuple(temps_read)
             print("Temperature: " + text)
 
-    comm = MPI.COMM_WORLD
-    rank = comm.Get_rank()
-    size = comm.Get_size()
+    # comm = MPI.COMM_WORLD
+    # rank = comm.Get_rank()
+    # size = comm.Get_size()
 
     with nvtx.annotate('collision matrix: sequential', color='red'):
         # This computes pieces of collision matrix sequentially.
-        task_per_node = len(lbte._grid_points) / size
-        for it in range(len((lbte._grid_points))):
-            if it//task_per_node!=rank:
-                continue
+        # task_per_node = len(lbte._grid_points) / size
+        for i in lbte:
+        # for it in range(len((lbte._grid_points))):
+            # if it//task_per_node!=rank:
+                # continue
 
-            i = next(lbte)
+            # i = next(lbte)
             if write_pp:
                 write_phph(
                     lbte, interaction, i, filename=output_filename, compression=compression
